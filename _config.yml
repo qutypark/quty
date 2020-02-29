@@ -1,2 +1,5 @@
 theme                  : "minimal-mistakes-jekyll"
 remote_theme           : "mmistakes/minimal-mistakes"
+
+url:"https://qutypark.github.io"
+baseurl:""
