@@ -1,11 +1,6 @@
 ---
-title: "Statistics"
-date: 2020-03-08
-comments:true
-category: data analysis
-tags:[data analysis]
+title: "statistics"
+date: 2020-02-29
+categories: data analysis
 ---
-This is the data analysis category test.
-In this pod category, basic concepts of statistic will be posted
-
-
+test
