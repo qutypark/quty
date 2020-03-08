@@ -1,8 +1,8 @@
 ---
 title: "Statistics"
-comments:true
 date: 2020-03-08
-categories: data analysis
+comments:true
+category: data analysis
 tags:[data analysis]
 ---
 This is the data analysis category test.
