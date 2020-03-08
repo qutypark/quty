@@ -2,6 +2,6 @@
 
 layout: category
 
-title: data analysis
+title: data_analysis
 
 ---
