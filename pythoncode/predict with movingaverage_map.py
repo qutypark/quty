@@ -49,8 +49,8 @@ for i,xpath in enumerate(xlsx_paths):
 def duplicate(testList, n):
     return testList*n
 # view　option
-pd.set_option('display.max_colwidth', 100) # 一列に表示できる文字数を増やす
-pd.set_option('display.max_columns', None) # 常に全ての列（カラム）を表示するpandasオプション
+pd.set_option('display.max_colwidth', 100) 
+pd.set_option('display.max_columns', None) 
 
 # def fuction: convert string to numeric for lotitude, langtitude 
 def convert(tude):
