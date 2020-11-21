@@ -2,7 +2,8 @@
 
 this is the place for code repository (mostly in python)
 
-please check 
+Please check this urllink below. 
+Thank you
 
 ## pythoncode
-1. [py](https://github.com/tododata101/tododata101.github.io/tree/master/pythoncode) 
+1. [pythoncode](https://github.com/tododata101/tododata101.github.io/tree/master/pythoncode) 
