@@ -1,7 +1,7 @@
 ## Welcome to Project2_moving page
 
 ### This is about Visulization and Prediction with moving average(ARIMA)
-####  * if error "Sorry, something went wrong. Reload?" comes out, please clik "Reload"
+####  * if error "Sorry, something went wrong. Reload?" comes out, please click "Reload"
 
 1. [Prediction](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project2_moving/ARIMA.py) 
 
