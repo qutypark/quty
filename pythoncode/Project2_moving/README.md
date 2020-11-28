@@ -3,7 +3,7 @@
 ### This is about Visulization and Prediction with moving average(ARIMA)
 ####  * if error "Sorry, something went wrong. Reload?" comes out, please clik "Reload"
 
-1. [Prediction](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project2_moving/Classification.ipynb) 
+1. [Prediction](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project2_moving/ARIMA.py) 
 
     this is about prediction of location(Lat Long) with Auto Regressive Integrated Moving Average(ARIMA).
     
