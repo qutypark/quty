@@ -52,7 +52,7 @@ def duplicate(testList, n):
 pd.set_option('display.max_colwidth', 100) 
 pd.set_option('display.max_columns', None) 
 
-# def fuction: convert string to numeric for lotitude, langtitude 
+# def fuction: convert string to numeric for latitude, longtitude 
 def convert(tude):
     multiplier = 1 if tude[-1] in ['N', 'E'] else -1
     return multiplier * sum(float(x) / 60 ** n for n, x in enumerate(tude[:-1].split('-')))
@@ -78,6 +78,7 @@ for i in range(imo49.shape[0]):
 imo49["Latitude"]=lat49
 imo49["Longitude"]=lon49
 
+# drop columns unnecessary
 imo49.drop(columns=['Latitude(緯度)', 'Longitude(経度)'],axis=1,inplace=True)
 
 # -----A2.2 feature engineering 1.new feauture= move distance-----　
@@ -106,7 +107,7 @@ for i in range(1,imo49.shape[0]):
     imo49bearing.append(tc)
 imo49["bearing"]=imo49bearing
 
-# -----A2.3 replace nan data and make datetime span consistent with median -----
+# -----A2.3 replace nan data and make datetime span consistent with median and 1day -----
 
 imo49_1=imo49.copy()
 
@@ -116,13 +117,13 @@ imo49_1['Lasttime(UTC+09:00)']= pd.to_datetime(imo49_1['Lasttime(UTC+09:00)'])
 imo49_1.drop(columns="UTC",axis=1,inplace=True)
 
 imo49_1float=imo49_1.iloc[:,[7,8,9,11,12,13]]
-imo49_3=imo49_1.groupby([pd.Grouper(key='Lasttime(UTC+09:00)', freq='1D')])[['Course', 'Heading', 'Speed（船速）', 'Latitude',
+imo49_3=imo49_1.groupby([pd.Grouper(key='Lasttime(UTC+09:00)', freq='1D')])[['Course', 'Heading', 'Speed', 'Latitude',
        'Longitude','Distance',"bearing"]].median()
 
 
 # -----B1.read data from local: waterspeed and rotaion of ship-----
 
-path_globw= os.path.join('c:/user/localpath*.csv') 
+path_globw= os.path.join('c:/user/localpath/*.csv') 
 csv_pathw= sorted(glob.glob(path_globw))      
 
 W = len(csv_pathw)                  # 
@@ -347,8 +348,8 @@ for i in range(9):
 
 #---------------R1.1 for static map----------------------- 
 # download backgroud map
-ruh_m= plt.imread("C:/Users/1181767/Desktop/map.png")
-ruh_p= plt.imread("C:/Users/1181767/Desktop/map_predict.png")
+ruh_m= plt.imread("c:/users/localpath/map.png")
+ruh_p= plt.imread("c:/users/localpath/map_predict.png")
 
 # for mapping make plot
 BBox = ((imo49_1.Longitude.min(),   imo49_1.Longitude.max(),      
@@ -390,15 +391,15 @@ fig =go.Figure()
 fig.add_trace(go.Scattermapbox(lat=list(imo49_3.Latitude),lon=list(imo49_3.Longitude), 
                                mode="markers+lines", marker=go.scattermapbox.Marker(
             size=5
-        ),subplot='mapbox',name="現状"))
+        ),subplot='mapbox',name="present"))
 fig.add_trace(go.Scattermapbox(lat=list(df_resultL.pred_lat),lon=list(df_resultL.pred_long), 
                          mode="markers+lines", marker=go.scattermapbox.Marker(
             size=5
-        ),subplot='mapbox',name="予測値"))
+        ),subplot='mapbox',name="predict"))
 fig.add_trace(go.Scattermapbox(lat=list(AISCyeff1.Latitude),lon=list(AISCyeff1.Longitude), 
                          mode="markers", marker=go.scattermapbox.Marker(
             size=5
-        ),subplot='mapbox',name="燃費"))
+        ),subplot='mapbox',name="eff"))
 
 
 fig.update_layout(
@@ -416,11 +417,7 @@ fig.update_layout(
         zoom=2
     )
 )
-# fig.update_layout(yaxis=dict(range=[11.958866666666667, 43.329345210459884]))
-# fig.update_layout(xaxis=dict(range=[10.306791038154024, 61.47988333333333]))
 
-# pio.renderers.default = 'browser'
-# pio.show(fig)
 fig.show()
 
 
@@ -431,15 +428,15 @@ fig =go.Figure()
 fig.add_trace(go.Scattermapbox(lat=list(df_resultL.Latitude),lon=list(df_resultL.Longitude),
                                mode="markers+lines", marker=go.scattermapbox.Marker(
             size=5
-        ),subplot='mapbox',name="現状",hovertemplate =df_resultL.index))
+        ),subplot='mapbox',name="present",hovertemplate =df_resultL.index))
 fig.add_trace(go.Scattermapbox(lat=list(df_resultL.pred_lat),lon=list(df_resultL.pred_long), 
                          mode="markers+lines", marker=go.scattermapbox.Marker(
             size=5
-        ),subplot='mapbox',name="予測値",hovertemplate =df_resultL.index))
+        ),subplot='mapbox',name="predict",hovertemplate =df_resultL.index))
 fig.add_trace(go.Scattermapbox(lat=list(AISCyeff1.Latitude),lon=list(AISCyeff1.Longitude),
                          mode="markers", marker=go.scattermapbox.Marker(
             size=5
-        ),subplot='mapbox',name="燃費",hovertemplate =AISCyeff1.index))
+        ),subplot='mapbox',name="eff",hovertemplate =AISCyeff1.index))
 
 
 fig.update_layout(
@@ -458,9 +455,4 @@ fig.update_layout(
         
     )
 )
-# fig.update_layout(yaxis=dict(range=[11.958866666666667, 43.329345210459884]))
-# fig.update_layout(xaxis=dict(range=[10.306791038154024, 61.47988333333333]))
-
-# pio.renderers.default = 'browser'
-# pio.show(fig)
 fig.show()
