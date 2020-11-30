@@ -7,7 +7,7 @@
 
     this is about prediction of location(Lat Long) with Seasonal Auto Regressive Integrated Moving Average(SARIMA).
     
-2. [Make map chart of vessel path](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project2_moving/movingChart.ipynb)
+2. [Make map chart of vessel path](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project2_moving/movingchart.png)
 
     this is about Viasulization of vessel path
    
