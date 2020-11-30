@@ -319,14 +319,14 @@ ax.imshow(ruh_p, zorder=0, extent = BBox_N,aspect= 'equal')
 
 #---------------목적3.1.2 for dynamic plot with plotly----------------------- 
 fig =go.Figure()
-fig.add_trace(go.Scattermapbox(lat=list(b.Latitude),lon=list(b.Longitude),
+fig.add_trace(go.Scattermapbox(lat=list(df3.Latitude),lon=list(df3.Longitude),
                                mode="markers+lines", marker=go.scattermapbox.Marker(
             size=5
-        ),subplot='mapbox',name="present",hovertemplate =b.index))
-fig.add_trace(go.Scattermapbox(lat=list(a.pred_lat),lon=list(b.pred_long), 
+        ),subplot='mapbox',name="present",hovertemplate =df3.index))
+fig.add_trace(go.Scattermapbox(lat=list(df3.pred_lat),lon=list(df3.pred_long), 
                          mode="markers+lines", marker=go.scattermapbox.Marker(
             size=5
-        ),subplot='mapbox',name="prediction",hovertemplate =b.index))
+        ),subplot='mapbox',name="prediction",hovertemplate =df3.index))
 fig.add_trace(go.Scattermapbox(lat=list(df3eff1.Latitude),lon=list(df3eff1.Longitude),
                          mode="markers", marker=go.scattermapbox.Marker(
             size=5
