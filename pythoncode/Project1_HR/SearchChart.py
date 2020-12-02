@@ -1,4 +1,4 @@
-﻿def matching():
+def matching():
     # Calculate matching percentage and export it to Excel sheet
     import numpy as np
     import pandas as pd
@@ -9,14 +9,14 @@
 
 
     # read data
-    essc=pd.read_csv("C:/Users/local",encoding="cp932")
+    df=pd.read_csv("C:/Users/local",encoding="cp932")
 
 
-    # ――――――――――――――――matching percentage――――――――――――――――
+    # ――――――――――――――――matching percentage: with the distacne from Threshold ――――――――――――――――
     # Variance V53
-    V530=pd.DataFrame((essc['V53']-XX).value_counts().sort_index()) # XX = Threshold
-    V53P=[]
-    V53N=[]
+    V530=pd.DataFrame((df['V53']-XX).value_counts().sort_index()) # XX = Threshold
+    V53P=[]  # Positive
+    V53N=[]  # Negative
     for i in V530.index.values:
         if i >= 0.0:
             V53P.append(round(i,2))
@@ -25,9 +25,9 @@
     V53N.sort(reverse=True)
 
     # Variance V51
-    V510=pd.DataFrame((essc['V51']-XX).value_counts().sort_index()) # XX = Threshold
-    V51P=[]
-    V51N=[]
+    V510=pd.DataFrame((df['V51']-XX).value_counts().sort_index()) # XX = Threshold
+    V51P=[]  # Positive
+    V51N=[]  # Negative
     for i in V510.index.values:
         if i >= 0.0:
             V51P.append(round(i,2))
@@ -36,9 +36,9 @@
     V51N.sort(reverse=True)
 
     # Variance V56
-    V560=pd.DataFrame((essc["V56"]-XX).value_counts().sort_index()) # XX = Threshold
-    V56P=[]
-    V56N=[]
+    V560=pd.DataFrame((df["V56"]-XX).value_counts().sort_index()) # XX = Threshold
+    V56P=[]  # Positive
+    V56N=[]  # Negative
     for i in V560.index.values:
         if i >= 0.0:
             V56P.append(round(i,2))
@@ -48,9 +48,9 @@
 
 
     # Variance V54
-    V540=pd.DataFrame((essc["V54"]-XX).value_counts().sort_index())# XX = Threshold
-    V54P=[]
-    V54N=[]
+    V540=pd.DataFrame((df["V54"]-XX).value_counts().sort_index())# XX = Threshold
+    V54P=[]  # Positive
+    V54N=[]  # Negative
     for i in V540.index.values:
         if i >= 0.0:
             V54P.append(round(i,2))
@@ -59,9 +59,9 @@
     V54N.sort(reverse=True)
 
     # Variance V52
-    V520=pd.DataFrame((essc["V52"]-XX).value_counts().sort_index())# XX = Threshold
-    V52P=[]
-    V52N=[]
+    V520=pd.DataFrame((df["V52"]-XX).value_counts().sort_index())# XX = Threshold
+    V52P=[]  # Positive
+    V52N=[]  # Negative
     for i in V520.index.values:
         if i >= 0.0:
             V52P.append(round(i,2))
@@ -69,30 +69,31 @@
             V52N.append(round(i,2))  
     V52N.sort(reverse=True)
 
+    # calculate score of distacne from Threshold 
     #V53
     V53R=[]
-    for j in (essc['V53']-XX).values:    
+    for j in (df['V53']-XX).values:    
         for i in range(len(V53P)): 
             if j.round(2) == V53P[i]:
                 a=(100/len(V53P))*(i+1)
-        for k in range(1,len(V53N)):
+        for k in range(len(V53N)):
             if j.round(2) == V53N[k]:
                 a=-(100/len(V53N))*(k+1)
         V53R.append(a)   
         
     #V51
     V51R=[]
-    for j in (essc["V51"]-XX).values:    
+    for j in (df["V51"]-XX).values:    
         for i in range(len(V51P)): 
             if j.round(2) == V51P[i]:
                 a=(100/len(V51P))*(i+1)
-        for k in range(1,len(V51N)):
+        for k in range(len(V51N)):
             if j.round(2) == V51N[k]:
                 a=-(100/len(V51N))*(k+1)
         V51R.append(a)   
     #V56
     V56R=[]
-    for j in (essc['V56']-XX).values:    
+    for j in (df['V56']-XX).values:    
         for i in range(len(V56P)):  
             if j.round(2) == V56P[i]:
                 a=(100/len(V56P))*(i+1)
@@ -103,7 +104,7 @@
         
     #V54
     V54R=[]
-    for j in (essc['V54']-XX).values:    
+    for j in (df['V54']-XX).values:    
         for i in range(len(V54P)):  
             if j.round(2) == V54P[i]:
                 a=(100/len(V54P))*(i+1)
@@ -114,7 +115,7 @@
         
     #V52
     V52R=[]
-    for j in (essc['V52']-XX).values:    
+    for j in (df['V52']-XX).values:    
         for i in range(len(V52P)):  
             if j.round(2) == V52P[i]:
                 a=(100/len(V52P))*(i+1)
@@ -125,8 +126,8 @@
         
     justsum=[]
 
-    #Calculate Weight  
-    for i in range(essc.shape[0]):
+    #Calculate Weight  assumption: all variance has equal Weight
+    for i in range(df.shape[0]):
         m=20*(V53R[i]/100)  #20 -> 100/the number of variance(= 5) 
         o=20*(V51R[i]/100)
         p=20*(V56R[i]/100)
@@ -144,11 +145,25 @@
     # # # ――――――――――――――――make new dataframe――――――――――――――――
     # "result"
     c6=["ID",'V53','V51','V56','V54','V52']
-    esscNew=essc[c6]
+    dfNew=df[c6]
     extra=pd.DataFrame({"V53":V53R,"V51":V51R,"V56":V56R,
                         "V54":V54R,"V52":V52R,"sum":justsum,"matching":norsum})
+
+    # label：　based on matching percentage、make label
+    # ex) label= A, B, C, D -> A= 75~100 , B= 50~75 , C=25~50 , D=0~25
+    label=extra['matching'].map(lambda x: "A" if 75<= x <=100 else "B" if 50<= x < 75 
+                                       else "C" if 25<= x < 50 else "D") 
+    extra["Label"]=label
+
+    # sort "result"
+    result=pd.concat([dfNew,extra],axis=1,sort=False)
+    
+    # # # ――――――――――――export dataframe to excel sheet with xlwings――――――――――――――――
+    sheet0=xw.sheets[0]
+    sheet0.range("A7").options(index=False).value=result
+
    
-﻿def SearchChart():
+def SearchChart():
 # ID Search -> Calculated percentage and Chart will be displayed to Excel Sheet
 
     import numpy as np
@@ -176,9 +191,9 @@
     sheet1=xw.sheets[1]
 
     #prepare Threshold
-    sc5 = ["V53","V51","V56","V54","V52"]
-    sc5v= [XX,XX,XX,XX,XX]
-    schp= pd.DataFrame({"val":sc5v},index=sc5)
+    v5 = ["V53","V51","V56","V54","V52"]
+    v5v= [XX,XX,XX,XX,XX]
+    dfst= pd.DataFrame({"val":v5v},index=v5)
 
     #read data from sheet0
     df = sheet0.range("A7").options(pd.DataFrame, 
@@ -190,35 +205,30 @@
     df1.index=(range(df1.shape[0]))
 
     #Result searched by ID
-    a2=sheet1.range('A2').value
+    a2=sheet1.range('A2').value # for example,cell A2 is the place to insert ID
     
     if a2 in df1["ID"].values:
-            esa2=df1[df1["ID"]==a2]
-            sheet1.range('A3').clear()
+        dfa2=df1[df1["ID"]==a2]
+        sheet1.range('A3').clear()
 
-    else: 
-            sheet1.range("A3").value="ID doesn't exist.Please Check ID once again"
-            sheet1.range("A3").api.Font.ColorIndex = 3
-            sheet1.range('A5').clear()
-            sheet1.range('A6').clear()
-            sheet1.range('J6').clear()
-            sheet1.range('C6').clear()
-    
-            sys.exit()
+    else:
+        sheet1.range("A3").value="ID doesn't exist.Please Check ID once again"
+        sheet1.range("A3").api.Font.ColorIndex = 3
+        sheet1.range('xx').clear() # clear the value of cell xx
+        sys.exit() # stop system
 
     
-    esa2m=esa2[sc5].median()
+    dfa2m=dfa2[v5].median()
 
 
     #radar chart
-    sc6=["V53(+)","V51(-)","V56(+)","V54(-)","V52(+)"]
-    labels=np.array(sc6)
+    labels=np.array(v5)
     angles=np.linspace(0, 2*np.pi, len(labels), endpoint=False)
     angles=np.concatenate((angles,[angles[0]]))
 
-    schp1=np.concatenate((schp.values,[schp.values[0]]))
+    dfst1=np.concatenate((dfst.values,[dfst.values[0]]))
 
-    esa2m1=np.concatenate((esa2m.values,[esa2m.values[0]]))
+    dfa2m1=np.concatenate((dfa2m.values,[dfa2m.values[0]]))
 
     # create backgroud radar chart:HP
     fig=plt.figure()
@@ -227,12 +237,12 @@
     ax.set_title("radarchart")
 
     # Threshold radar chart 
-    ax.plot(angles, schp1, 'o-', linewidth=1,label="Threshold",color="b")
+    ax.plot(angles, dfst1, 'o-', linewidth=1,label="Threshold",color="b")
     ax.set_thetagrids(angles * 180/np.pi, labels)
 
     # Candidate radar chart Searched By ID
-    ax.plot(angles, esa2m1, 'o-', linewidth=1,label="Candidate",color="green")
-    ax.fill(angles, esa2m1,"green",alpha=0.25)
+    ax.plot(angles, dfa2m1, 'o-', linewidth=1,label="Candidate",color="green")
+    ax.fill(angles, dfa2m1,"green",alpha=0.25)
     ax.set_thetagrids(angles * 180/np.pi, labels)
     ax.grid(True)
     plt.legend(loc="upper right",bbox_to_anchor=(0.1,0.1))
@@ -265,8 +275,8 @@
 #Percentage bar with data searched By ID
 
     start = 0
-    val=esa2["matching"].values.round(2)[0]
-    default=100-esa2["matching"].values.round(2)[0]
+    val=dfa2["matching"].values.round(2)[0]
+    default=100-dfa2["matching"].values.round(2)[0]
     labels=["percentage"]
 
     fig, ax = plt.subplots()
@@ -309,27 +319,8 @@
     sheet1.range("A6").api.Font.Size = 14
     sheet1.range("A6").api.Font.Bold = True
 
-    sheet1.range("C6").value=esa2["Label"].values[0]
+    sheet1.range("C6").value=dfa2["Label"].values[0]
     sheet1.range("C6").api.Font.Size = 14
     sheet1.range("C6").color= (233,231,249)
     sheet1.range("C6").api.Font.Bold = True
-    # sheet1.range("C6").api.HorizontalAlignment = xlHAlignCenter
-    # sheet1.range("C6").api.VerticalAlignment = xlHAlignCenter
-
-
-
-
-    # label：　based on matching percentage、make label
-    # ex) label= A, B, C, D -> A= 75~100 , B= 50~75 , C=25~50 , D=0~25
-    label=extra['matching'].map(lambda x: "A" if 75<= x <=100 else "B" if 50<= x < 75 
-                                       else "C" if 25<= x < 50 else "D") 
-    extra["Label"]=label
-
-    # sort "result"
-    result=pd.concat([esscNew,extra],axis=1,sort=False)
-    
-    # # # ――――――――――――export dataframe to excel sheet――――――――――――――――
-    sheet0=xw.sheets[0]
-    sheet0.range("A7").options(index=False).value=result
-
     
