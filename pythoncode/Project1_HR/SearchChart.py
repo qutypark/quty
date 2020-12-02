@@ -196,41 +196,34 @@ def SearchChart():
     dfst= pd.DataFrame({"val":v5v},index=v5)
 
     #read data from sheet0
-    df = sheet0.range("A7").options(pd.DataFrame, 
-                             header=1,
-                             index=False, 
-                             expand='table').value
+    df = sheet0.range("A7").options(pd.DataFrame, header=1,index=False, expand='table').value
 
     df1=df.sort_values(by=['matching'],ascending=False)
     df1.index=(range(df1.shape[0]))
 
     #Result searched by ID
     a2=sheet1.range('A2').value # for example,cell A2 is the place to insert ID
-    
+    # make dataframe based on ID
     if a2 in df1["ID"].values:
         dfa2=df1[df1["ID"]==a2]
         sheet1.range('A3').clear()
-
+    #if ID cannot be found, error message comes out on cell A3
     else:
         sheet1.range("A3").value="ID doesn't exist.Please Check ID once again"
         sheet1.range("A3").api.Font.ColorIndex = 3
-        sheet1.range('xx').clear() # clear the value of cell xx
+        sheet1.range('xx').clear() # delete previous result value (cell xx)
         sys.exit() # stop system
-
-    
-    dfa2m=dfa2[v5].median()
-
-
+        
     #radar chart
     labels=np.array(v5)
     angles=np.linspace(0, 2*np.pi, len(labels), endpoint=False)
     angles=np.concatenate((angles,[angles[0]]))
 
     dfst1=np.concatenate((dfst.values,[dfst.values[0]]))
-
+    dfa2m=dfa2[v5].median() # median of dataframe based on ID
     dfa2m1=np.concatenate((dfa2m.values,[dfa2m.values[0]]))
 
-    # create backgroud radar chart:HP
+    # create backgroud radar chart
     fig=plt.figure()
     ax= fig.add_subplot(111, polar=True)
     fig.set_size_inches(6,6)
@@ -247,28 +240,29 @@ def SearchChart():
     ax.grid(True)
     plt.legend(loc="upper right",bbox_to_anchor=(0.1,0.1))
 
-
-    sheet1.pictures.add(fig, name='radorchart', update=True,left=sheet1.range('A23').left, top=sheet1.range('A23').top)
+    #locate radar chart to cell xx
+    sheet1.pictures.add(fig, name='radorchart', update=True,left=sheet1.range('xx').left, top=sheet1.range('xx').top)
 
 # ――――――――――――――――Lable bar graph――――――――――――――――
 
-    HPhist=df1[["ID","Label"]].groupby(["Label"],as_index=False).agg(lambda x:len(x.value_counts())).sort_values(by="ID",ascending=False)
+    bar=df1[["ID","Label"]].groupby(["Label"],as_index=False).agg(lambda x:len(x.value_counts())).sort_values(by="ID",ascending=False)
 
-    #Draw plot
+    #Draw plot and display value of count
     fig=plt.figure(figsize=(5,2), dpi=80)
-    plt.hlines(y=HPhist.Label, xmin=0, xmax=HPhist["ID"])
-    for x, y, tex in zip(HPhist["ID"], HPhist["Label"],HPhist["ID"]):
+    plt.hlines(y=bar.Label, xmin=0, xmax=bar["ID"])
+    for x, y, tex in zip(bar["ID"], bar["Label"],bar["ID"]):
         t = plt.text(x, y, round(tex, 1), horizontalalignment='right' if x < 0 else 'left', 
                      verticalalignment='baseline', fontdict={"color":'#6259D8', 'size':12})
 
     # Decorations    
-    plt.title('ABCDgraph', fontdict={'size':12})
-    plt.yticks(HPhist.Label,HPhist.Label, fontsize=12)
+    plt.title('bar grahp', fontdict={'size':12})
+    plt.yticks(bar.Label,bar.Label, fontsize=12)
     plt.grid(linestyle='--', alpha=0.3)
-    plt.xlim(-10,max(HPhist["ID"])+20)
-    plt.ylim(-0.25,3.5)
+    plt.xlim(-10,max(bar["ID"])+20)  # manipulate the span of x
+    plt.ylim(-0.25,3.5)  # manipulate the span of y
 
-    sheet1.pictures.add(fig, name='Bargraph', update=True,left=sheet1.range('F11').left, top=sheet1.range('F11').top)
+    #locate label bar graph to cell xx
+    sheet1.pictures.add(fig, name='Bargraph', update=True,left=sheet1.range('xx').left, top=sheet1.range('xx').top)
 
 # ――――――――――――――――percentage and percentage bar graph――――――――――――――――
 
@@ -299,28 +293,31 @@ def SearchChart():
     leg1 = mpatches.Patch(color='#6259D8', label='percentage')
     leg2 = mpatches.Patch(color="silver", label='100%')
 
-
-    sheet1.pictures.add(fig, name="percentage",update=True,left=sheet1.range('F6').left, top=sheet1.range('F6').top)
-
-    sheet1.range("J6").value = "%1f%%"%val
-    sheet1.range("J6").api.Font.Size = 16
-    sheet1.range("J6").api.Font.Bold = True
+    #locate percentage bar graph to cell xx
+    sheet1.pictures.add(fig, name="percentage",update=True,left=sheet1.range('xx').left, top=sheet1.range('xx').top)
+ 
+    # display percentage at cell xx with some decoration
+    sheet1.range("xx").value = "%1f%%"%val
+    sheet1.range("xx").api.Font.Size = 16
+    sheet1.range("xx").api.Font.Bold = True
 
 # ――――――――――――――――ranking and Label with data searched By ID――――――――――――――――
     per=100-stats.percentileofscore(df1['matching'], val, kind='rank')
 
     rank=df1[df1["ID"]==a2].index.values[0]
+    #ranking on cell xx
+    sheet1.range("xx").value="among %r、ranked %r" %(df.shape[0],rank+1)
+    sheet1.range("xx").api.Font.Size = 14
+    sheet1.range("xx").api.Font.Bold = True
 
-    sheet1.range("A5").value="among %r、ranked %r" %(df.shape[0],rank+1)
-    sheet1.range("A5").api.Font.Size = 14
-    sheet1.range("A5").api.Font.Bold = True
-
-    sheet1.range("A6").value="upper　%1f%%"%per
-    sheet1.range("A6").api.Font.Size = 14
-    sheet1.range("A6").api.Font.Bold = True
-
-    sheet1.range("C6").value=dfa2["Label"].values[0]
-    sheet1.range("C6").api.Font.Size = 14
-    sheet1.range("C6").color= (233,231,249)
-    sheet1.range("C6").api.Font.Bold = True
+    #percentile on cell xx
+    sheet1.range("xx").value="upper　%1f%%"%per
+    sheet1.range("xx").api.Font.Size = 14
+    sheet1.range("xx").api.Font.Bold = True
+    
+    #diplay label on cell xx 
+    sheet1.range("xx").value=dfa2["Label"].values[0]
+    sheet1.range("xx").api.Font.Size = 14
+    sheet1.range("xx").color= (233,231,249)
+    sheet1.range("xx").api.Font.Bold = True
     
