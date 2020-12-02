@@ -28,7 +28,7 @@ for i,file in enumerate(wav_paths):
     b=re.split("[./]",a)[-1]
     c=norm_dir+"/"+b+".wav"
     sound = AudioSegment.from_file(file, "wav")
-    normalized_sound = match_target_amplitude(sound, -20.0)
+    normalized_sound = match_target_amplitude(sound, -20.0)  # can control parameter ex) -16.0 
     normalized_sound.export(c, format="wav")
 
 
