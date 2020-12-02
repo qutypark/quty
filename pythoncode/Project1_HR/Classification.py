@@ -16,14 +16,14 @@ plt.style.use("ggplot")
 pd.set_option("display.max_columns",None)
 
 # 0. read dataset 
-# data: GAB and assessment data of in-house company /  GAB data of candidates
+# data: testdata and assessment data of in-house company /  test data of candidates
 
-# 0.1 standard data = GAB and assessment data of in-house company
+# 0.1 standard data = testdata and assessment data of in-house company
 train=pd.read_excel("C:/local",encoding="cp932")
 # Lable: categorial (Ordinal)=  H/M/L
-# Explanatory variable:numerical(Continuous)= score of each GAB 
+# Explanatory variable:numerical(Continuous)= score of each testdata
 
-# 0.2 apply data; GAB data of candidates
+# 0.2 apply data; test data of candidates
 test=pd.read_csv("C:/local",encoding="cp932")
 
 # 1. check dataset
