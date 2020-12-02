@@ -315,7 +315,7 @@ def SearchChart():
     sheet1.range("xx").api.Font.Size = 14
     sheet1.range("xx").api.Font.Bold = True
     
-    #diplay label on cell xx 
+    #display label on cell xx 
     sheet1.range("xx").value=dfa2["Label"].values[0]
     sheet1.range("xx").api.Font.Size = 14
     sheet1.range("xx").color= (233,231,249)
