@@ -192,7 +192,7 @@ def SearchChart():
 
     #prepare Threshold
     v5 = ["V53","V51","V56","V54","V52"]
-    v5v= [XX,XX,XX,XX,XX]
+    v5v= [XX,XX,XX,XX,XX]  # xx = Threshold of each variance
     dfst= pd.DataFrame({"val":v5v},index=v5)
 
     #read data from sheet0
