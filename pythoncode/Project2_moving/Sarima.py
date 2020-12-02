@@ -48,19 +48,18 @@ df1=pd.read_csv("localpath",encoding="cp932")
 def convert(tude):
     multiplier = 1 if tude[-1] in ['N', 'E'] else -1
     return multiplier * sum(float(x) / 60 ** n for n, x in enumerate(tude[:-1].split('-')))
-
-lan=[]
-lon=[]
+lan49=[]
+lon49=[]
 for i in range(df1.shape[0]):
-    a=np.array(lsDFA[0].iloc[:,7])
+    a=np.array(df1['Latitude(緯度)'])
     b=convert(a[i])
-    lan.append(b)
+    lan49.append(b)
 for i in range(df1.shape[0]):
-    a=np.array(lsDFA[0].iloc[:,8])
+    a=np.array(df1['Longitude(経度)'])
     b=convert(a[i])
-    lon.append(b)
-df1["Latitude"]=lan
-df1["Longitude"]=lon
+    lon49.append(b)
+df1["Latitude"]=lan49
+df1["Longitude"]=lon49
 df1.drop(columns=['Latitude(緯度)', 'Longitude(経度)'],axis=1,inplace=True)
 
 # ----------------목적1.2. Feature Engineering-------------------
