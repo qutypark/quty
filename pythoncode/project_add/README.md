@@ -11,5 +11,5 @@
     
 2. [SpeechRecognition](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/project_add/speechrecognition.py)
 
-    this is about case of using API and library "SpeechRecognition" from google for convert audio file to txt file
+    this is about case of using API and library "SpeechRecognition" from google to convert audio file to txt file
    
