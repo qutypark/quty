@@ -256,7 +256,7 @@ df2= pd.read_csv("localpath",engine='python')
 # # --------------------------목적2.1 data cleansing---------------------------
 #데이터1 과의 시간빈도 조정: 빈도=1day with median
 c=df2.columns
-df2=df2.groupby([pd.Grouper(key='Timestamp', freq='1D')])[c]].median()
+df2=df2.groupby([pd.Grouper(key='Timestamp', freq='1D')])[c].median()
 #지표생성에 필요한 변수만 남기기
 df2_1=df2[["v1","v2"]]
 
