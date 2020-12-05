@@ -19,12 +19,12 @@ plt.style.use("ggplot")
 pd.set_option("display.max_columns",None)
 
 #------------------ 0. read data ----------------------
-# object: analyze contents of cv document of applicants who passed final interview
+# purpose: analyze words of cv document from applicants who passed final interview
 
 df=pd.read_csv("C:/localpath.csv",encoding="cp932",dtype="str")
 
 #------------------ 1. data cleansing  ----------------------
-# get unique list to drop the variances which have null data(has less than 1 unique data)
+# get unique list to drop the variances which is not meaningful(has less than 1 unique data)
 uni=df.nunique()
 uni01=uni[uni<=1].index.values.tolist()
 df01New=df.drop(columns=uni01)
@@ -32,7 +32,6 @@ df01New=df.drop(columns=uni01)
 #------------------ 2. Feature Engineering  ----------------------
 
 # 1) label encoding for categorical data 
-#Reformat values for column a using an unnamed lambda function
 # Pass・Fail・etc・Nan -> to numeric
 
 df01New=df01New.fillna("")
@@ -79,8 +78,6 @@ df01New["PF_L"] = df01New.apply (lambda row: PF_L(row), axis=1)  # for last(fina
 df01New=df01New.drop(columns=['PF_sc1', 'PF_lib1', 'PF_sc2', 'PF_lib2', 'PF_scL','PF_libL'])
 
 #------------------ 3. NLP  ----------------------
-#focused on data who pass last(final)interview 
-
 
 #import library for japanese
 from janome.tokenizer import Tokenizer
