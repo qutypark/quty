@@ -11,3 +11,7 @@
     this is about how to integrate excel with python to make easy search chart.
    
     *you need to edit VBA additionally to set module of python(.Py)
+    
+3. [NLP: wordcloud](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project1_HR/NLP_by_interview.ipnyb)
+
+    this is about wordcloud which is basic of NLP
