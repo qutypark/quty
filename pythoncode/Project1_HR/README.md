@@ -12,6 +12,6 @@
    
     *you need to edit VBA additionally to set module of python(.Py)
     
-3. [NLP: wordcloud](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project1_HR/NLP_by_interview.ipnyb)
+3. [NLP: wordcloud](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project1_HR/NLP_by_interview.ipynb)
 
     this is about wordcloud which is basic of NLP
