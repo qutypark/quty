@@ -18,9 +18,6 @@ plt.style.use("ggplot")
 import os
 import openpyxl
 
-import collections, csv
-from os.path  import basename
-
 import glob                        
 
 import itertools
@@ -148,7 +145,7 @@ decomposition_m = sm.tsa.seasonal_decompose(df1_dis, model="multiplicative")
 decomposition_m.title="multiplicative"
 decomposition_m.plot()
 
-# 3) bearing -> multiplocative가 적용되지 않음 / Seasonal이 일정한 형태 = additive 
+# 3) bearing -> multiplicative가 적용되지 않음 / Seasonal이 일정한 형태 = additive 
 df1_be=df1_3['bearing']
 decomposition_a = sm.tsa.seasonal_decompose(df1_be, model="additive")
 decomposition_a.plot()
