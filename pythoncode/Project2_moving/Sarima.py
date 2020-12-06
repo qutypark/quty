@@ -225,8 +225,8 @@ objs=[df1_L,pred_Long_Lat]
 df_resultL=pd.concat(objs)
 
 # 가시화 for mapping make plot
-BBox = ((df1_1.Longitude.min(),   df1_1.Longitude.max(),      
-         df1_1.Latitude.min(), df1_1.Latitude.max()))
+BBox = ((df_resultL.Longitude.min(),  df_resultL.Longitude.max(),      
+         df_resultL.Latitude.min(), df_resultL.Latitude.max()))
 BBox_P=((df_resultL["pred_long"].min(),df_resultL["pred_long"].max(),      
         df_resultL["pred_lat"].min(),df_resultL["pred_lat"].max()))
 
@@ -237,7 +237,7 @@ ruh_m= plt.imread("map.png")
 ruh_p= plt.imread("map_predict.png")
 
 fig, ax = plt.subplots(figsize = (8,7))
-ax.scatter(df1_3.Longitude, df1_3.Latitude, zorder=1, alpha= 1, c='b', s=50)
+ax.scatter(df_resultL.Longitude, df_resultL.Latitude, zorder=1, alpha= 1, c='b', s=50)
 ax.scatter(df_resultL.pred_long, df_resultL.pred_lat, zorder=1, alpha= 1, c='r', s=50)
 ax.set_xlim(BBox_N[0],BBox_N[1])
 ax.set_ylim(BBox_N[2],BBox_N[3])
@@ -257,10 +257,9 @@ from IPython.display import HTML,IFrame
 # -------------------목적2.1 필요한 데이터 준비----------------------------------------
 # 데이터 1:현 경로/예측 경로 = df_resultL
 
-#---------------목적2.1.1 for static map----------------------- 
+#---------------목적2.1.1 for static map: backgroud= local png file----------------------- 
 # download backgroud map
-ruh_m= plt.imread("c:/users/localpath/map.png")
-ruh_p= plt.imread("c:/users/localpath/map_predict.png")
+ruh_p= plt.imread("c:/map_predict.png")
 
 # for mapping make plot
 BBox = ((df_resultL.Longitude.min(),   df_resultL.Longitude.max(),      
@@ -281,7 +280,7 @@ ax.set_xlim(BBox_P[0],BBox[1])
 ax.set_ylim(BBox[2],BBox_P[3])
 ax.imshow(ruh_p, zorder=0, extent = BBox_N,aspect= 'equal')
 
-#---------------목적2.1.2 for dynamic plot with plotly----------------------- 
+#---------------목적2.1.2 for dynamic plot with plotly backgroud= open street map----------------------- 
 fig =go.Figure()
 # 현재 위치
 fig.add_trace(go.Scattermapbox(lat=list(df_resultL.Latitude),lon=list(df_resultL.Longitude),
