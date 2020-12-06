@@ -28,11 +28,9 @@ from itertools import chain, repeat
 from itertools import cycle, islice
 
 # 목적1: 선박 경로 예측 -> 예측 대상: 위도, 경도(Latitude, Longitude)
-# 목적2: 선박 운전 효율지표 생성
-# 목적3: 현 경로/예측 경로 가시화 및, 효율 지표 가시화 
-#       데이터1: 선박위치데이터 =df1
-#       데이터2: 선박기기데이터 =df2
-#       데이터3: 데이터1 + 데이터2 = df3
+# 목적2: 현 경로/예측 경로 가시화
+#       데이터: 선박위치데이터 =df1
+
 #       예측1: 시계열 이동평균으로, 위도/경도 예측
 #       예측2: 혹은 [distance, bearing]를 예측 후, 위도/경도를 계산 * 결과적으로 배제
 
@@ -93,8 +91,6 @@ for i in range(1,df1.shape[0]):
 df1["bearing"]=df1bearing
 
 # --------------------------목적1.3.data 완성----------------------------
-# ------it is not necessary to see skewdness----------------------------
-
 df1_1=df1.copy()
 
 #중앙값으로 결손치 제거  /  필요한 변수만 남기기
@@ -107,7 +103,6 @@ df1_1.drop(columns="UTC",axis=1,inplace=True)
 #완성된 데이터1 = df1_3
 df1_3=df1_1.groupby([pd.Grouper(key='Lasttime(UTC+09:00)', freq='1D')])[['Course', 'Heading', 'Speed（船速）', 'Latitude',
        'Longitude','Distance',"bearing"]].median()
-
 
 
 # # --------------------------목적1.5  EDA--------------------------
@@ -127,6 +122,7 @@ plt.ylabel('Latitude')
 plt.show()
 
 #time series가 additive vs multiplicative인지 확인
+# 결과적으로 additive한 데이터
 # 1) Latitude -> Seasonal이 일정한 형태 = additive
 df1_Lat=df1_3['Latitude']
 decomposition_a = sm.tsa.seasonal_decompose(df1_Lat, model="additive")
@@ -193,8 +189,8 @@ for param in pdq:
 #latitude 예측 파라메터
 df1_Lat=df1_3["Latitude"]
 mod_Lat= sm.tsa.statespace.SARIMAX(df1_Lat,
-                                order=(0, 1, 1),
-                                seasonal_order=(1, 1, 0, 12),
+                                order=(x, x, x),
+                                seasonal_order=(x, x, x, x),
                                 enforce_stationarity=False,
                                 enforce_invertibility=False)
 results_Lat = mod_Lat.fit()
@@ -203,8 +199,8 @@ print(results_Lat.summary().tables[1])
 #longitude 예측 파라메터
 df1_Long=df1_3["Longitude"]
 mod_Long= sm.tsa.statespace.SARIMAX(df1_Long,
-                                order=(0, 1, 0),
-                                seasonal_order=(1, 1, 0, 12),
+                                 order=(x, x, x),
+                                seasonal_order=(x, x, x, x),
                                 enforce_stationarity=False,
                                 enforce_invertibility=False)
 results_Long = mod_Long.fit()
@@ -247,34 +243,8 @@ ax.set_xlim(BBox_N[0],BBox_N[1])
 ax.set_ylim(BBox_N[2],BBox_N[3])
 ax.imshow(ruh_p, zorder=0, extent = BBox_N, aspect= 'equal')
 
-
-# -----------------------------목적2.0 read data---------------------------
-#데이터2 선박기기데이터
-df2= pd.read_csv("localpath",engine='python')  
-
-# # --------------------------목적2.1 data cleansing---------------------------
-#데이터1 과의 시간빈도 조정: 빈도=1day with median
-c=df2.columns
-df2=df2.groupby([pd.Grouper(key='Timestamp', freq='1D')])[c].median()
-#지표생성에 필요한 변수만 남기기
-df2_1=df2[["v1","v2"]]
-
-# # --------------------------목적2.2  Feature Engineering--------------------------
-#데이터1(위치데이터(*현 경로)) & 데이터2(기기데이터 )concat
-#for concat ->  manipulate index
-df1_4=df1_3.copy()
-df1_4=df1_4.rename(index={"Lasttime(UTC+09:00)":"time"})
-df2_1=df2_1.rename(index={"Timestamp":"time"})
-
-df3=pd.concat([df1_4,df2_1],axis=1)
-#운전 지표 생성
-df3['eff']=(df3["V0"] > df3["V2"]).astype("int")
-
-df3eff1=df3[df3["eff"]==1]
-df3eff0=df3[df3["eff"]==0]
-
-# ------------------목적3: 현 경로/예측 경로 가시화 및, 효율 지표 가시화 -------------------
-# -------------------목적3.0 import library----------------------------------------
+# ------------------목적2: 현 경로/예측 경로 가시화 -------------------
+# -------------------목적2.0 import library----------------------------------------
 
 import chart_studio.plotly as py
 from plotly.graph_objs import *
@@ -284,53 +254,43 @@ import plotly.io as pio
 import plotly.tools as tlsM
 from IPython.display import HTML,IFrame
 
-# -------------------목적3.1 필요한 데이터 준비----------------------------------------
+# -------------------목적2.1 필요한 데이터 준비----------------------------------------
 # 데이터 1:현 경로/예측 경로 = df_resultL
-# 데이터 2:효율지표 
-#       효율이 좋음: df3eff1
-#   효율이 좋지 않음: df3eff0
 
-#---------------목적3.1.1 for static map----------------------- 
+#---------------목적2.1.1 for static map----------------------- 
 # download backgroud map
 ruh_m= plt.imread("c:/users/localpath/map.png")
 ruh_p= plt.imread("c:/users/localpath/map_predict.png")
 
 # for mapping make plot
-BBox = ((df1_1.Longitude.min(),   df1_1.Longitude.max(),      
-         df1_1.Latitude.min(), df1_1.Latitude.max()))
+BBox = ((df_resultL.Longitude.min(),   df_resultL.Longitude.max(),      
+         df_resultL.Latitude.min(), df_resultL.Latitude.max()))
 BBox_P=((df_resultL["pred_long"].min(),df_resultL["pred_long"].max(),      
         df_resultL["pred_lat"].min(),df_resultL["pred_lat"].max()))
-
 
 BBox_N = ((BBox_P[0], BBox[1], BBox[2], BBox_P[3]))
 
 
 fig, ax = plt.subplots(figsize = (8,7))
-ax.plot(df1_3.Longitude, df1_3.Latitude,'-o',c='b',label="present")
-ax.plot(df3eff1["Longitude"], df3eff1["Latitude"],'o',c='g',label="efficiency")
+ax.plot(df_resultL.Longitude, df_resultL.Latitude,'-o',c='b',label="present")
 ax.plot(df_resultL.pred_long, df_resultL.pred_lat,'-o',c="r",label="future")
 
 ax.legend()
-ax.set_title('efficeiency')
+ax.set_title('moving path')
 ax.set_xlim(BBox_P[0],BBox[1])
 ax.set_ylim(BBox[2],BBox_P[3])
 ax.imshow(ruh_p, zorder=0, extent = BBox_N,aspect= 'equal')
 
-#---------------목적3.1.2 for dynamic plot with plotly----------------------- 
+#---------------목적2.1.2 for dynamic plot with plotly----------------------- 
 fig =go.Figure()
-fig.add_trace(go.Scattermapbox(lat=list(df3.Latitude),lon=list(df3.Longitude),
+fig.add_trace(go.Scattermapbox(lat=list(df_resultL.Latitude),lon=list(df_resultL.Longitude),
                                mode="markers+lines", marker=go.scattermapbox.Marker(
             size=5
         ),subplot='mapbox',name="present",hovertemplate =df3.index))
-fig.add_trace(go.Scattermapbox(lat=list(df3.pred_lat),lon=list(df3.pred_long), 
+fig.add_trace(go.Scattermapbox(lat=list(df_resultL.pred_lat),lon=list(df_resultL.pred_long), 
                          mode="markers+lines", marker=go.scattermapbox.Marker(
             size=5
-        ),subplot='mapbox',name="prediction",hovertemplate =df3.index))
-fig.add_trace(go.Scattermapbox(lat=list(df3eff1.Latitude),lon=list(df3eff1.Longitude),
-                         mode="markers", marker=go.scattermapbox.Marker(
-            size=5
-        ),subplot='mapbox',name="eff",hovertemplate =df3eff1.index))
-
+        ),subplot='mapbox',name="prediction",hovertemplate =df_resultL.index))
 
 fig.update_layout(
     autosize=True,
