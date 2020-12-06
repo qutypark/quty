@@ -61,7 +61,7 @@ df1["Longitude"]=lon49
 df1.drop(columns=['Latitude(緯度)', 'Longitude(経度)'],axis=1,inplace=True)
 
 # ----------------목적1.2. Feature Engineering-------------------
-# 예측2 distance 를 계산
+# 예측2 distance 를 계산   * 결과적으로 배제
 
 from geopy.distance import geodesic
 df1distance=[0]
@@ -74,7 +74,7 @@ for i in range(1,df1.shape[0]):
 # distance변수 추가
 df1["Distance"]=df1distance
 
-# 예측2 bearing 를 계산
+# 예측2 bearing 를 계산   * 결과적으로 배제
 import math
 df1bearing=[0]
 for i in range(1,df1.shape[0]):
