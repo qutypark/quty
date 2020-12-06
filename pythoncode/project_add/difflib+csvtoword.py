@@ -79,11 +79,11 @@ for i, cpath in enumerate(csv_paths):
     resultname = '%s.docx' % (z)
     result_path="C:/local/result/"
     result_file= os.path.join(result_path,resultname) 
-    if "{" in itemgetter(2)(result_list0[i]):  # example of flag generation:  "{" 가 특정위치에 있다면 flag1생성
+    if "{" in itemgetter(n)(result_list0[i]):  # example of flag generation:  "{" 가 특정위치(n)에 있다면 flag1생성
         run = mydoc.add_heading().add_run("flag1") # 플래그를 워드 문서 헤드화
         run.font.color.rgb = RGBColor(0, 0, 255)  # 플래그 색상 blue
     else:
-        run = mydoc.add_heading().add_run("flag2")   # example of flag generation:"{" 가 특정위치에 없다면 flag2생성
+        run = mydoc.add_heading().add_run("flag2")   # example of flag generation:"{" 가 특정위치(n)에 없다면 flag2생성
         run.font.color.rgb = RGBColor(0, 0, 0)   # 플래그 색상 black      
     for item in result_list0[i]:
         p=mydoc.add_paragraph()
