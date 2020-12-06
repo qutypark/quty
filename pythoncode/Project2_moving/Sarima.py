@@ -275,7 +275,7 @@ ax.set_xlim(BBox_P[0],BBox[1])
 ax.set_ylim(BBox[2],BBox_P[3])
 ax.imshow(ruh_p, zorder=0, extent = BBox_N,aspect= 'equal')
 
-#---------------목적2.1.2 for dynamic plot with plotly backgroud= open street map----------------------- 
+#---------------목적2.1.2 for dynamic plot with plotly: backgroud= open street map----------------------- 
 fig =go.Figure()
 # 현재 위치
 fig.add_trace(go.Scattermapbox(lat=list(df_resultL.Latitude),lon=list(df_resultL.Longitude),
