@@ -37,7 +37,7 @@ from itertools import cycle, islice
 #*주의* 데이터 셋 타임라인 1달 ->  시계열 예측의 어려움이 예상됨
 
 # ----------------목적1.0 read data-------------------------------------------------------
-#데이터1: 선박위치데이터 (which is open data)
+#데이터1: 선박위치데이터 (which is not confidential data)
 
 df1=pd.read_csv("localpath",encoding="cp932")
 
