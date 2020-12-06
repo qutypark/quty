@@ -4,8 +4,8 @@
 
 1. [Classification](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project1_HR/Classification.ipynb) 
 
-   this is about EDA, Feauture Engineering, Linear Regression, ML/DL, Visulization for classification.
-
-2 [NLP: wordcloud](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project1_HR/NLP_by_interview.ipynb)
-
-   this is about wordcloud which is basic of NLP
+   this is about EDA, Feauture Engineering, Linear Regression, ML/DL, Visulization for classification
+   
+   2 [NLP: wordcloud](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project1_HR/NLP_by_interview.ipynb)
+    
+    this is about wordcloud which is basic of NLP
