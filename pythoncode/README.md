@@ -12,4 +12,4 @@
     
 3. [project_add](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/project_add)
 
-   This is usually about data convertion to different type 
+   This is usually about data conversion to different type 
