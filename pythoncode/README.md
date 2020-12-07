@@ -2,7 +2,7 @@
 
 1. [Project1_HR](https://github.com/tododata101/tododata101.github.io/tree/master/pythoncode/Project1_HR) 
 
-   This is about People analyitics with classfication and basic NLP
+   This is about People analytics with classfication and basic NLP
    
   
 2. [Project2_moving](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project2_moving)
