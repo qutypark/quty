@@ -230,9 +230,12 @@ import plotly.io as pio
 import plotly.tools as tlsM
 from IPython.display import HTML,IFrame
 
-# -------------------목적2.1 필요한 데이터 및 백그라운드 설정 ----------------------------------------
+# -------------------목적2.1 필요한 데이터 준비 ----------------------------------------
 # 데이터 1:현 경로/예측 경로 = df_resultL
-# 가시화 for mapping make plot
+
+#---------------목적2.1.1 for static map: backgroud= local png file----------------------- 
+
+# mapping 
 BBox = ((df_resultL.Longitude.min(),  df_resultL.Longitude.max(),      
          df_resultL.Latitude.min(), df_resultL.Latitude.max()))
 BBox_P=((df_resultL["pred_long"].min(),df_resultL["pred_long"].max(),      
@@ -240,7 +243,7 @@ BBox_P=((df_resultL["pred_long"].min(),df_resultL["pred_long"].max(),
 
 BBox_N = ((BBox_P[0], BBox[1], BBox[2], BBox_P[3]))
 
-#---------------목적2.1.1 for static map: backgroud= local png file----------------------- 
+
 # download backgroud map
 ruh_p= plt.imread("c:/map_predict.png")
 
