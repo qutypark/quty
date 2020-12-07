@@ -24,15 +24,14 @@ import itertools
 from itertools import chain, repeat
 from itertools import cycle, islice
 
+# 데이터: 선박위치데이터 =df1  (which is not confidential data)
 # 목적1: 선박 경로 예측 -> 예측 대상: 위도, 경도(Latitude, Longitude)
-# 목적2: 현 경로/예측 경로 가시화
-#       데이터: 선박위치데이터 =df1
-
 #       예측1: 시계열 이동평균으로, 위도/경도 예측
 #       예측2: 혹은 [distance, bearing]를 예측 후, 위도/경도를 계산 * 결과적으로 배제
+# 목적2: 현 경로/예측 경로 가시화
 
-# ----------------목적1.0 read data-------------------------------------------------------
-#데이터1: 선박위치데이터 (which is not confidential data)
+
+# ----------------목적1.0 read data------------------------------------------
 
 df1=pd.read_csv("localpath",encoding="cp932")
 
@@ -41,18 +40,18 @@ df1=pd.read_csv("localpath",encoding="cp932")
 def convert(tude):
     multiplier = 1 if tude[-1] in ['N', 'E'] else -1
     return multiplier * sum(float(x) / 60 ** n for n, x in enumerate(tude[:-1].split('-')))
-lan49=[]
-lon49=[]
+lat=[] # latitude 
+lon=[] # longtitude
 for i in range(df1.shape[0]):
     a=np.array(df1['Latitude(緯度)'])
     b=convert(a[i])
-    lan49.append(b)
+    lat.append(b)
 for i in range(df1.shape[0]):
     a=np.array(df1['Longitude(経度)'])
     b=convert(a[i])
-    lon49.append(b)
-df1["Latitude"]=lan49
-df1["Longitude"]=lon49
+    lon.append(b)
+df1["Latitude"]=lat
+df1["Longitude"]=lon
 df1.drop(columns=['Latitude(緯度)', 'Longitude(経度)'],axis=1,inplace=True)
 
 # ----------------목적1.2. Feature Engineering-------------------
@@ -117,7 +116,7 @@ plt.ylabel('Latitude')
 plt.show()
 
 #time series가 additive vs multiplicative인지 확인
-# 결과적으로 additive한 데이터
+# 결과적으로 additive한 데이터 = 지수함수 이용은 불필요
 # 1) Latitude -> Seasonal이 일정한 형태 = additive
 df1_Lat=df1_3['Latitude']
 decomposition_a = sm.tsa.seasonal_decompose(df1_Lat, model="additive")
@@ -167,8 +166,8 @@ seasonal_pdq = [(x[0], x[1], x[2], 12) for x in list(itertools.product(p, d, q))
 for param in pdq:
     for param_seasonal in seasonal_pdq:
         try:
-            mod = sm.tsa.statespace.SARIMAX(df1_3.iloc[:,6],
-                                            order=param,
+            mod = sm.tsa.statespace.SARIMAX(df1_3.iloc[:,i],   # i= latitude or longtitud의 열번호를 차례대로 
+                                             order=param,
                                             seasonal_order=param_seasonal,
                                             enforce_stationarity=False,
                                             enforce_invertibility=False)
@@ -180,12 +179,13 @@ for param in pdq:
 #latitude and longtitude
 #파라메터 선택1: 위의 결과에서 정보손실지표 AIC가 낮은 파라메터 선택
 #파라메터 선택2: P값과의 조정
+# for example: order-> 0,0,0  / seasonal_order->1,0,0,12
 
 #latitude 예측 파라메터
 df1_Lat=df1_3["Latitude"]
 mod_Lat= sm.tsa.statespace.SARIMAX(df1_Lat,
-                                order=(x, x, x),
-                                seasonal_order=(x, x, x, x),
+                                order=(0, 0, 0),
+                                seasonal_order=(1, 0, 0, 12),
                                 enforce_stationarity=False,
                                 enforce_invertibility=False)
 results_Lat = mod_Lat.fit()
@@ -194,19 +194,19 @@ print(results_Lat.summary().tables[1])
 #longitude 예측 파라메터
 df1_Long=df1_3["Longitude"]
 mod_Long= sm.tsa.statespace.SARIMAX(df1_Long,
-                                 order=(x, x, x),
-                                seasonal_order=(x, x, x, x),
+                                order=(0, 0, 0),
+                                seasonal_order=(1, 0, 0, 12),
                                 enforce_stationarity=False,
                                 enforce_invertibility=False)
 results_Long = mod_Long.fit()
 print(results_Long.summary().tables[1])
 
 # # # predict in 10days of lat&longtitude 10일 후 예측
-pred_uc_Lat = results_Lat.forecast(10)
+pred_uc_Lat = results_Lat.get_forecast(10)
 pred_ci_Lat= pred_uc_Lat.conf_int()
 pred_Lat=pred_uc_Lat.predicted_mean
 
-pred_uc_Long = results_Long.forecast(steps=10)
+pred_uc_Long = results_Long.get_forecast(steps=10)
 pred_ci_Long= pred_uc_Long.conf_int()
 pred_Long=pred_uc_Long.predicted_mean
 
@@ -219,25 +219,6 @@ objs=[df1_L,pred_Long_Lat]
 #목적1의 완성된 데이터
 df_resultL=pd.concat(objs)
 
-# 가시화 for mapping make plot
-BBox = ((df_resultL.Longitude.min(),  df_resultL.Longitude.max(),      
-         df_resultL.Latitude.min(), df_resultL.Latitude.max()))
-BBox_P=((df_resultL["pred_long"].min(),df_resultL["pred_long"].max(),      
-        df_resultL["pred_lat"].min(),df_resultL["pred_lat"].max()))
-
-BBox_N = ((BBox_P[0], BBox[1], BBox[2], BBox_P[3]))
-
-# download backgroud map
-ruh_m= plt.imread("map.png")
-ruh_p= plt.imread("map_predict.png")
-
-fig, ax = plt.subplots(figsize = (8,7))
-ax.scatter(df_resultL.Longitude, df_resultL.Latitude, zorder=1, alpha= 1, c='b', s=50)
-ax.scatter(df_resultL.pred_long, df_resultL.pred_lat, zorder=1, alpha= 1, c='r', s=50)
-ax.set_xlim(BBox_N[0],BBox_N[1])
-ax.set_ylim(BBox_N[2],BBox_N[3])
-ax.imshow(ruh_p, zorder=0, extent = BBox_N, aspect= 'equal')
-
 # ------------------목적2: 현 경로/예측 경로 가시화 -------------------
 # -------------------목적2.0 import library----------------------------------------
 
@@ -249,21 +230,19 @@ import plotly.io as pio
 import plotly.tools as tlsM
 from IPython.display import HTML,IFrame
 
-# -------------------목적2.1 필요한 데이터 준비----------------------------------------
+# -------------------목적2.1 필요한 데이터 및 백그라운드 설정 ----------------------------------------
 # 데이터 1:현 경로/예측 경로 = df_resultL
-
-#---------------목적2.1.1 for static map: backgroud= local png file----------------------- 
-# download backgroud map
-ruh_p= plt.imread("c:/map_predict.png")
-
-# for mapping make plot
-BBox = ((df_resultL.Longitude.min(),   df_resultL.Longitude.max(),      
+# 가시화 for mapping make plot
+BBox = ((df_resultL.Longitude.min(),  df_resultL.Longitude.max(),      
          df_resultL.Latitude.min(), df_resultL.Latitude.max()))
 BBox_P=((df_resultL["pred_long"].min(),df_resultL["pred_long"].max(),      
         df_resultL["pred_lat"].min(),df_resultL["pred_lat"].max()))
 
 BBox_N = ((BBox_P[0], BBox[1], BBox[2], BBox_P[3]))
 
+#---------------목적2.1.1 for static map: backgroud= local png file----------------------- 
+# download backgroud map
+ruh_p= plt.imread("c:/map_predict.png")
 
 fig, ax = plt.subplots(figsize = (8,7))
 ax.plot(df_resultL.Longitude, df_resultL.Latitude,'-o',c='b',label="present")
