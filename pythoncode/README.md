@@ -10,6 +10,6 @@
    This is about moving average and visualization with python plot
    
     
-3. [Project_add](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project_add)
+3. [project_add](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/project_add)
 
-   This is usually about data convertaion to different type 
+   This is usually about data convertion to different type 
