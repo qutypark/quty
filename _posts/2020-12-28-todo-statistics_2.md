@@ -50,46 +50,47 @@ Homoscedastic=동질적: 모든 무작위 변수가 같은 유한범위를 지�
 
 *정규분포: 잔차가 정규분포되어있는 지 여부에 따라 선형휘귀식이 적합한지, 로지스틱 회귀식이 적합한지 판단 가능*
  
- #### 3.2 Skewness(왜도)
- [왜도](https://ko.wikipedia.org/wiki/%EB%B9%84%EB%8C%80%EC%B9%AD%EB%8F%84)<br>
- 데이터의 비대칭성을 나타냄<br>
- 
- -> 값이 **0**에 가까울 수록 잔차가 **정규분포**되어있음을 나타냄<br>
+#### 3.2 Skewness(왜도)
+[왜도](https://ko.wikipedia.org/wiki/%EB%B9%84%EB%8C%80%EC%B9%AD%EB%8F%84)<br>
+데이터의 비대칭성을 나타냄<br>
+
+-> 값이 **0**에 가까울 수록 잔차가 **정규분포**되어있음을 나타냄<br>
 = 평균값과 중앙값이 같음
  
- #### 3.3 Kurtosis(첨도)
- [첨도](https://ko.wikipedia.org/wiki/%EC%B2%A8%EB%8F%84)<br>
- 확률분포의 뾰족함을 나타냄 = 관측치들이 집중적으로 몰려있는 정도<br>
+#### 3.3 Kurtosis(첨도)
+[첨도](https://ko.wikipedia.org/wiki/%EC%B2%A8%EB%8F%84)<br>
+확률분포의 뾰족함을 나타냄 = 관측치들이 집중적으로 몰려있는 정도<br>
  
- -> 값이 **3**에 가까우면 **정규분포**되어있음을 나타냄<br>
- = 아웃라이어의 영향을 피해 회귀식이 잘 정의되어있음을 나타냄
+-> 값이 **3**에 가까우면 **정규분포**되어있음을 나타냄<br>
+= 아웃라이어의 영향을 피해 회귀식이 잘 정의되어있음을 나타냄
  
- #### 3.4 Durbin-Watson
- [Durbin-watson](https://en.wikipedia.org/wiki/Durbin%E2%80%93Watson_statistic)<br>
- 잔차의 자기상관을 측정함<br>
- -> 값이 **2** =자기상관이 없음을 뜻함
+#### 3.4 Durbin-Watson
+[Durbin-watson](https://en.wikipedia.org/wiki/Durbin%E2%80%93Watson_statistic)<br>
+잔차의 자기상관을 측정함<br>
+
+-> 값이 **2** =자기상관이 없음을 뜻함
  
- #### 3.5 Jarque-Bera = Omnibus와 비슷
- [Jarque-Bera](https://en.wikipedia.org/wiki/Jarque%E2%80%93Bera_test)
- 
- 
- #### 3.6 Condition Number
- [Condition Number](https://en.wikipedia.org/wiki/Condition_number)<br>
- 입력값의 변화에, 출력값이 얼마나 영향을 받는지를 나타냄<br>
- = 내부 오류에 의해 외부 오류가 얼마나 영향을 받는지를 나타내며,<br>
-   [다중공선성](https://ko.wikipedia.org/wiki/%EB%8B%A4%EC%A4%91%EA%B3%B5%EC%84%A0%EC%84%B1)의 진단으로도 쓰임
- -> 값이 **30** 아래여야 함.
+#### 3.5 Jarque-Bera = Omnibus와 비슷
+[Jarque-Bera](https://en.wikipedia.org/wiki/Jarque%E2%80%93Bera_test)
  
  
-  ### 4. 그 외
+#### 3.6 Condition Number
+[Condition Number](https://en.wikipedia.org/wiki/Condition_number)<br>
+입력값의 변화에, 출력값이 얼마나 영향을 받는지를 나타냄<br>
+= 내부 오류에 의해 외부 오류가 얼마나 영향을 받는지를 나타내며,<br>
+[다중공선성](https://ko.wikipedia.org/wiki/%EB%8B%A4%EC%A4%91%EA%B3%B5%EC%84%A0%EC%84%B1)의 진단으로도 쓰임
+-> 값이 **30** 아래여야 함.
+ 
+ 
+ ### 4. 그 외
   
-  #### 4.1 정규분포 & "선형회귀" 와 "로지스틱 회귀"
-  - 선형회귀: 종속변수와 독립변수사이에 **선형관계**가 필요<br>
+ #### 4.1 정규분포 & "선형회귀" 와 "로지스틱 회귀"
+ - 선형회귀: 종속변수와 독립변수사이에 **선형관계**가 필요<br>
     -> 종속변수의 **가우스분포(정규분포)** 가정
     
-  - 로지스틱 회귀: 데이터를 **곡선**에 맞춤<br>
+ - 로지스틱 회귀: 데이터를 **곡선**에 맞춤<br>
     -> 종속변수의 **이항분포**를 가정
-  
+    
   > - 로짓변환: 곡선으로 맞춤 = Odds에 로그를 취하는 것<br>
   > - Odds: "비" =  실패에 비해 성공확률  log(P/1-P)<br>
   > - Odds Ratio : "비의 비율"  -> 비에 지수함수를 취한 것
