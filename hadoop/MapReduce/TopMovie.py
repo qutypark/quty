@@ -1,5 +1,9 @@
 # this was sample script from  course: [The Ultimate Hands on Hadoop](https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/)
 # Goal: sort the movies by their numbers of raitings
+# strategy1. Map to key,values pair(MovieID,1)
+# strategy2. Reduce with output of raiting count, movie id
+# strategy1. send to second reducer to sort by rating count
+
 
 # edit: nano TopMovie.py
 # execute: python TopMovie.py u.data
