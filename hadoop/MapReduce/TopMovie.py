@@ -1,6 +1,9 @@
 # this was sample script from  course: [The Ultimate Hands on Hadoop](https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/)
 # Goal: sort the movies by their numbers of raitings
 
+# edit: nano TopMovie.py
+# execute: python TopMovie.py u.data
+
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
