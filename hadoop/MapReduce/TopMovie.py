@@ -1,19 +1,26 @@
-# this was sample script from lecture 
-
+# this was sample script from  course: [The Ultimate Hands on Hadoop](https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/)
+# Goal: sort the movies by their numbers of raitings
 
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
-Class RatingsBreakdown(MRJob):
+Class TopMovie(MRJob):
   def steps(self):
-    return [MRStep(mapper = self.Mapper_get_ratings,
-                   reducer = self.Reduce_count_ratings)
+    # can chain map/reduce stages together
+    return [MRStep(mapper = self.mapper_get_ratings,
+                   reducer = self.reducer_count_ratings),
+            MRStep(reducer = self.reducer_sorted_output) #second reducer
            ]
-  def Mapper_get_ratings(self,_,line):
+  def mapper_get_ratings(self,_,line):
     (userID,MovieID,ratings,timestamp) = line.split('/t')
     yield MovieID,1
   
-  def Reduce_count_ratings(self,key,values):
-    yield key, sum(values)
+  def reducer_count_ratings(self,key,values):
+    yield str(sum(values)).zfill(5),key #make string into 5 digit num
+   
+  def reducer_sorted_output(self,count,movies):
+    for movie in movies:
+      yield movie,count
+  
 if __name__ == '__main__':
-  RatingsBreakdown.run()
+  TopMovie.run()
