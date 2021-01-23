@@ -11,9 +11,6 @@ ratings = LOAD '/user/maria_dev/ml_100k/u.data' AS
 
 --2. PigStorage; since releaseDate has delimeter pipe character
 
-/*# PigStorage: The PigStorage() function loads and stores data as structured text files. 
-It takes a delimiter using which each entity of a tuple is separated as a parameter. By default, it takes '\t' as a parameter./*
-
 metadata = LOAD '/user/maria_dev/ml_100k/u.item' USING PigStorage('|') AS
 (movieID:int, movieTitle:chararray, releaseDate:chararray, videoRelase:chararray, imbdlink: chararray);
 
