@@ -20,7 +20,7 @@ nameLookup = FOREACH metadata GENERATE movieID,moveTitle,
 ToUnixTime(ToDate(releaseDate,'dd-MMM-yyyy')) AS releaseTime;
 
 --4. figure out all the ratings associated with each individual movie by 'GroupBy'
--- create a BAG in pig taht contains tuples of all the individual rows associated with a given movieID
+-- create a BAG in pig that contains tuples of all the individual rows associated with a given movieID
 -- # similar to reducer but don't have to create reducer! 
 
 ratingsByMovie = GROUP raitings BY movieID;
