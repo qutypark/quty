@@ -67,7 +67,7 @@ data warehouse software project
 
 주요기능: SQL데이터베이스와 비슷하며 그 기능을 목적으로 함<br>
 실제로 hadoop cluster 저장 데이터에 대해 SQL쿼리를 실행<br>
-*(실제 관계형 데이터베이스는 아님)*
+(실제 관계형 데이터베이스는 아님)
 
 ##### 2.3 Ambari <br>
 system administrator <br> 
