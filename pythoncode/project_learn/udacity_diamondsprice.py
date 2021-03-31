@@ -1,3 +1,9 @@
+# Project and dataset from udacity data course
+# https://www.udacity.com/
+
+# predict diamonds price 
+# recommend bid price of diamonds, which would be 70% of price 
+
 #-----------------------------import library------------------------------
 import numpy as np
 import pandas as pd
