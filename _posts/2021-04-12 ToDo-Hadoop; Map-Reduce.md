@@ -75,7 +75,7 @@ Overview of Hadoop Ecosystem<br>
 
 1.2 Key/Value 페어로 변환
 
-노드1<br>         
+노드1 <br>         
 196:242<br>      
 186:302<br>      
 
@@ -94,4 +94,10 @@ Overview of Hadoop Ecosystem<br>
 196: 2 
 
 4. Back to Client Node
+
+
+>>> 참고<br>
+[참고1](https://data-flair.training/forums/topic/why-hadoop-mapreduce-uses-key-value-pair-to-process-the-data/)
+[참고1](https://kdata.or.kr/info/info_04_view.html?field=&keyword=&type=techreport&page=74&dbnum=153319&mode=detail&type=techreport)
+
 
