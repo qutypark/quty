@@ -22,14 +22,14 @@ Big Files -> Break Them into Blocks -> Stored across serveral Commodity Computer
              다른 Data Node와 서로 대화하여 블록 복사본을 유지 
              
 - **Name Node의 복원력**
->> 1. Backup Metadata: Name Nodes는 로컬 디스크와 NFS에 작성
->> 2. Secondary NameNode: "Edit Log"의 복사본을 유지
+>> 1. Backup Metadata: Name Nodes는 로컬 디스크와 NFS에 작성<br>
+>> 2. Secondary NameNode: "Edit Log"의 복사본을 유지<br>
 >> 3. HDFS Federation: 각 Name Node는 특정 Name Node의 볼륨만을 관리<br>
-      * 대용랑 파일에 유용하지만 신뢰성을 의미하는 것은 아님
->> 4. High Availability 
->>> 4.1 공유된 "Edit Log"을 이용하여 Hot Standby상태를 유지
->>> 4.2 ZooKeeper 를 통해 활성화된 Name Node를 추적
->>> 4.3 한 번에 한 개의 Name Node 만 사용 가능
+      * 대용랑 파일에 유용하지만 신뢰성을 의미하는 것은 아님<br>
+>> 4. High Availability <br>
+>>> 4.1 공유된 "Edit Log"을 이용하여 Hot Standby상태를 유지<br>
+>>> 4.2 ZooKeeper 를 통해 활성화된 Name Node를 추적<br>
+>>> 4.3 한 번에 한 개의 Name Node 만 사용 가능<br>
              
 - **동작**<br>
 
