@@ -1,10 +1,10 @@
 ---
-title: "ToDo-HadoopEcosystem_3"
+title: "ToDo-Hadoop; Map-Reduce"
 date: 2021-04-12
 categories: Hadoop
 ---
 
-## ToDo-HadoopEcosystem_3; Map-Reduce 맵리듀스
+## ToDo-Hadoop; Map-Reduce 맵리듀스
 
 #### 전반적인 내용은 아래의 강좌를 참고
 Overview of Hadoop Ecosystem<br>
@@ -14,6 +14,9 @@ Overview of Hadoop Ecosystem<br>
 
 > 맵리듀스란 무엇인가 <br>
 >> HDFS에서 작동하는 데이터 분산 프레임워크
+
+> HDFS란 무엇인가 <br> *[관련내용]()
+
 
 > 왜 맵리듀스인가 <br>
 *전제: 모든 일을 한번에 처리하는 것보다 각 라인에서 전문적으로 일을 처리하는 것이 생산적
