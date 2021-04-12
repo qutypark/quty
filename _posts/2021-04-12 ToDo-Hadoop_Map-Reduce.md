@@ -1,5 +1,5 @@
 ---
-title: "ToDo-Hadoop; Map-Reduce"
+title: "ToDo-Hadoop-Map-Reduce"
 date: 2021-04-12
 categories: Hadoop
 ---
@@ -96,7 +96,8 @@ Overview of Hadoop Ecosystem<br>
 4. Back to Client Node
 
 
->>참고<br>
+
+### 참고<br>
 [1](https://data-flair.training/forums/topic/why-hadoop-mapreduce-uses-key-value-pair-to-process-the-data/)<br>
 [2](https://kdata.or.kr/info/info_04_view.html?field=&keyword=&type=techreport&page=74&dbnum=153319&mode=detail&type=techreport)
 
