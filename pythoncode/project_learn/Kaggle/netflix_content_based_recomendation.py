@@ -1,3 +1,4 @@
+# ONGOING NOT COMPLETED
 # calculate matching score for content-based filtering
 # cosine similarity 
 
