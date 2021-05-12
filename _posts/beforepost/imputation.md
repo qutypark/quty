@@ -1,1 +1,2 @@
-![alt text](https://github.com/tododata101/tododata101.github.io/blob/master/_posts/beforepost/img/fig4.1.png)
+아래와 같습니다.<br>
+<img align="center" src="https://bookdown.org/mwheymans/bookmi/images/fig4.1.png" width=50% height=50%>
