@@ -8,7 +8,7 @@
 
 *this is from udacity data course https://www.udacity.com/*
 
-1. [kaggle dataset_movie](https://github.com/tododata101/tododata101.github.io/tree/master/pythoncode/project_learn/Kaggle)<br>
+2. [kaggle dataset_movie](https://github.com/tododata101/tododata101.github.io/tree/master/pythoncode/project_learn/Kaggle)<br>
 : Movie&Drama Recommendation(content_based)<br>
 [Kaggle dataset](https://www.kaggle.com/shivamb/netflix-shows/tasks)
 
