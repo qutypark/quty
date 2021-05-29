@@ -2,7 +2,7 @@
 
 1. [Project1_HR](https://github.com/tododata101/tododata101.github.io/tree/master/pythoncode/Project1_HR) 
 
-   This is about People analytics with classfication and basic NLP
+   This is about People analytics with classfication and basic NLP(Wordcloud)
    
   
 2. [Project2_moving](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/Project2_moving)
@@ -13,3 +13,7 @@
 3. [project_add](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/project_add)
 
    This is usually about data conversion into different type 
+   
+4. [project_learn](https://github.com/tododata101/tododata101.github.io/blob/master/pythoncode/project_learn)
+
+   This is usually about personal study or kaggle 
