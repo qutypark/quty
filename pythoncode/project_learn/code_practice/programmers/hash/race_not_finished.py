@@ -1,4 +1,9 @@
-# 완주하지 못한 선수  완주하지 못한 선수는 1명
+# 완주하지 못한 선수를 찾아냄(완주하지 못한 선수는 1명)
+# 참가선수(part): ["leo", "kiki", "eden"]
+# 완주선수(com): ["eden", "kiki"]
+# 완주 못한 선수(정답): 'leo'
+
+# dictionary를 이용
 def solution(part, com):
     dic = dict()
     for p in part:
