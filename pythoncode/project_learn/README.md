@@ -8,3 +8,6 @@
 
 2. [kaggle dataset_movie](https://github.com/tododata101/tododata101.github.io/tree/master/pythoncode/project_learn/Kaggle)
 : Movie&Drama Recommendation(content_based)
+
+3. [code_practice](https://github.com/tododata101/tododata101.github.io/tree/master/pythoncode/project_learn/code_practice)
+: codepractice
