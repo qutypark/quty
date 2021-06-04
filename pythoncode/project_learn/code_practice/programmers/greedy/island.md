@@ -47,4 +47,5 @@ def solution(n, costs):
     return answer
 ```
 
-
+>참고
+>> https://velog.io/@minidoo/알고리즘-탐욕법Greedy-프로그래머스-3단계-섬-연결하기
