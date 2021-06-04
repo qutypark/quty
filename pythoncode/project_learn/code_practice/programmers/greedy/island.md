@@ -41,7 +41,7 @@ def solution(n, costs):
             set_S.remove(temp2)
             set_S.append(temp1|temp2) # 2개의 노드를 서로 연결한다.
             answer += i[2]
-            if len(set_S) == 1: # 집합 S의 수가 1이 되면 멈춘다.
+            if len(set_S) == 1: # 집합 S의 수가 1이 되면 멈춘다.(=모두 연결된 상태)
                 break
 
     return answer
