@@ -21,10 +21,7 @@ def solution(n, costs):
     
     answer = 0
     costs.sort(key=lambda x:x[-1]) # 가중치 오름차순 정렬
-    set_S = []
-
-    for i in range(n):
-        set_S.append({i}) # 모든 노드를 원소로 갖는 집합 S를 만든다.
+    set_S = [{i} for i in range(n)]# 모든 노드를 원소로 갖는 집합 S를 만든다.
     
     for i in costs:  
         temp1 = set()
