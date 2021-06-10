@@ -5,7 +5,10 @@
 
 #### 풀이방법 
 - 최단거리 갯수 구하는 공식 중 [**1,1,1 법칙**](https://namu.wiki/w/최단거리) 응용
+- 출발지점(1,1)과 같은 행, 열 지점의 최단 거리 갯수는 무조건 1 
+- 웅덩이의 행과 열이 1이면 -> 1행의 모든 열 / 1열의 모든 행은 가지 못함
 
+```python
 def solution(m, n, pud):
     dp_matrix = [[1] * m for _ in range(n)] #1,1,1 법칙
     
@@ -25,4 +28,4 @@ def solution(m, n, pud):
     final = dp_matrix[n-1][m-1] #도착 지점의 값 -> 총 갯수
     
     return final % 1000000007
-
+```
