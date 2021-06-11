@@ -61,6 +61,7 @@ Overview of Hadoop Ecosystem<br>
 
 1.1 각각의 파티션으로 나누어 각 노드에 지정
 
+
 노드1 <br>
 |UserId|MovieId|
 |------|---|
