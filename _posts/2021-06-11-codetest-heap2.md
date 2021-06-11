@@ -13,8 +13,10 @@ categories: Algorithms
 - job = [[0, 3], [1, 9], [2, 6]]
 
 #### 풀이방식
+- 핵심: 
 [First Come First Served(FCFS)](https://www.geeksforgeeks.org/program-for-fcfs-cpu-scheduling-set-1/)이 아닌 ->  " [Shortest Job First(SJF)](https://www.guru99.com/shortest-job-first-sjf-scheduling.html)
 "
+- [heapq](https://docs.python.org/3/library/heapq.html)사용
 
 ```python
 import heapq
