@@ -37,19 +37,17 @@ def solution_dfs(num, tar):
 ```python
 from collections import deque
 
-def solution_bfs(num, tar):
-    ans = 0
+def solution(num, tar):
     queue = deque([(0, 0)])
     while queue:
         sm, lev = queue.popleft()
         if lev == len(num):
-            if sm == tar:
-                ans += 1
+            break
         else:
             lev += 1
-            queue.append((sm + num[lev-1], lev))
-            queue.append((sm - num[lev-1], lev))
-    return ans
+            queue.append((sm+num[lev-1], lev))
+            queue.append((sm-num[lev-1], lev))
+    return list(x[0] for x in queue).count(tar)
 ```
 
 #### 풀이방법_3
