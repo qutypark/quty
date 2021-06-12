@@ -1,0 +1,16 @@
+### 프로그래머스_SQL_Groupby_입양시각 구하기
+- 각 시간대별로 입양이 몇 건이나 발생했는지 조회하는 SQL문.
+- 09:00부터 19:59까지.
+- 결과는 시간대 순으로 정렬.
+
+#### 풀이방법
+> 핵심:  시간대 뽑아내기
+
+```sql
+SELECT hour, cnt
+from (select DATE_FORMAT(datetime, "%H") as hour, count(*) as cnt
+     from animal_outs
+     group by hour) tmp
+where hour between 9 and 19
+order by hour;
+```
