@@ -16,7 +16,16 @@ where (i.sex_upon_intake like 'intact%') and (
     (o.sex_upon_outcome like 'Spayed%') or (o.sex_upon_outcome like 'Neutered%'))
 order by o.animal_id;
 ```
-> 2. left outer join
+> 2.  REGEXP
+```mysql
+SELECT o.animal_id, o.animal_type, o.name
+from animal_outs o
+join animal_ins i on o.animal_id = i.animal_id
+where (i.sex_upon_intake like 'intact%') and (o.sex_upon_outcome regexp 'Spayed|Neutered')
+order by o.animal_id;
+```
+
+> 3. left outer join
 >> 중성화가 된 후, 중성화가 되지 않는 경우는 없음<br>
 >> 따라서 != 로도 해결 가능 
 ```mysql
