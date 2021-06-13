@@ -10,7 +10,7 @@
 
 ```sql
 SELECT hour, cnt
-from (select DATE_FORMAT(datetime, "%H") as hour, count(*) as cnt
+from (select DATE_FORMAT(datetime, "%H") as hour, count(*) as cnt -- hour(datetime) as hour 도 가능
      from animal_outs
      group by hour) tmp
 where hour between 9 and 19
