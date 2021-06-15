@@ -13,8 +13,7 @@
 ```python
 from collections import defaultdict
 
-def solution_bfs(tick):
-    # BFS
+def solution(tick):
     # 1. 출발지와 도착지의 딕셔너리 생성
     dic = defaultdict(list)
     for t in tick:
