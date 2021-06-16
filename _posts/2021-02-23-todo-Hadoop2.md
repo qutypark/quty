@@ -10,6 +10,9 @@ Overview of Hadoop Ecosystem<br>
 *Udemy의 [The Ultimate Hands-On Hadoop: Tame your Big Data!](https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/) 강좌 참고 내용*
 
 
+{% include adsense.html %}
+
+
 ### Major Component of Hadoop<br>
 *주의: 각 시스템 별로 복잡한 관계가 존재하고, 획일화된 이해방식이 존재하지 않음*<br>
 
