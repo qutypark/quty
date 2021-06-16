@@ -6,8 +6,6 @@ categories: Algorithms
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12117)
 
 
-{% include adsense.html %}
-
 
 ### 프로그래머스_힙_이중우선순위큐
 - I 숫자	: 큐에 주어진 숫자를 삽입
