@@ -6,9 +6,6 @@ categories: Algorithms
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12244)
 
 
-{% include adsense.html %}
-
-
 
 ### 프로그래머스_탐욕법(Greedy)_단속카메라
 > 고속도로를 이동하는 차량의 경로 routes가 매개변수로 주어질 때, 모든 차량이 한 번은 단속용 카메라를 만나도록 하려면 최소 몇 대의 카메라를 설치해야 하는지를 return
