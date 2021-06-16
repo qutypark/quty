@@ -6,9 +6,6 @@ categories: Algorithms
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12230)
 
 
-{% include adsense.html %}
-
-
 ### 프로그래머스_완전탐색_소수 찾기
 
 - 각 종이 조각에 적힌 숫자가 적힌 문자열 numbers가 주어졌을 때, 종이 조각으로 만들 수 있는 소수가 몇 개인지 return 
