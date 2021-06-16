@@ -5,6 +5,10 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12117)
 
+
+{% include adsense.html %}
+
+
 ### 프로그래머스_힙_디스크 컨트롤러
 
 - 각 작업에 대해 [작업이 요청되는 시점, 작업의 소요시간]을 담은 2차원 배열 jobs가 매개변수로 주어질 때, 
