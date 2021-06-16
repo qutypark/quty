@@ -6,8 +6,6 @@ categories: Algorithms
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12198)
 
 
-{% include adsense.html %}
-
 
 ### 프로그래머스_정렬_가장 큰 수
 
