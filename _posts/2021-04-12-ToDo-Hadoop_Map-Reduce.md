@@ -10,6 +10,10 @@ categories: Hadoop
 Overview of Hadoop Ecosystem<br>
 *Udemy의 [The Ultimate Hands-On Hadoop: Tame your Big Data!](https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/) 
 
+
+{% include adsense.html %}
+
+
 ### Map-Reduce 맵리듀스 개요 <br>
 
 - 맵리듀스란 무엇인가 <br>
