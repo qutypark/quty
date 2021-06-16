@@ -6,8 +6,6 @@ categories: Algorithms
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12077)
 
 
-{% include adsense.html %}
-
 
 ### 프로그래머스_해쉬_베스트앨범
 - 스트리밍 사이트에서 장르 별로 가장 많이 재생된 노래를 두 개씩 모아 베스트 앨범을 출시
