@@ -7,6 +7,9 @@ categories: Algorithms
 
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12198)
 
+{% include adsense.html %}
+
+
 - 어떤 과학자가 발표한 논문의 인용 횟수를 담은 배열 citations가 매개변수로 주어질 때, <br>
   이 과학자의 H-Index를 return
 - H-index: 발표한 논문 n편 중, h번 이상 인용된 논문이 h편 이상이고 나머지 논문이 h번 이하 인용되었다면 h의 최댓값
