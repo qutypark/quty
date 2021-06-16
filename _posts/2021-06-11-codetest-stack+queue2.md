@@ -5,6 +5,9 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12081)
 
+{% include adsense.html %}
+
+
 ### 프로그래머스_스택큐_프린터
 - 인쇄 대기목록의 가장 앞에 있는 문서(J)를 대기목록에서 꺼냄
 - 나머지 인쇄 대기목록에서 J보다 중요도가 높은 문서가 한 개라도 존재하면 J를 대기목록의 가장 마지막에 넣음
