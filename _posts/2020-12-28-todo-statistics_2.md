@@ -6,6 +6,8 @@ categories: data_analysis
 
 ## OLS (Ordinary Least Squares)
 
+{% include adsense.html %}
+
 ### 들어가기 전(용어정리)
 - 오차: **모집단**에서, 회귀식의 예측값과 실제 관측값과의 차이
 - 잔차: **표본집단**에서, 회귀식의 예측값과 실제 관측값과의 차이
