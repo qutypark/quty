@@ -6,8 +6,6 @@ categories: Algorithms
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12077)
 
 
-{% include adsense.html %}
-
 
 ### 프로그래머스_해쉬_전화번호목록
 - 어떤 번호가 다른 번호의 접두어인 경우가 있으면 false를 그렇지 않으면 true를 return
