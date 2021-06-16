@@ -5,6 +5,9 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12117)
 
+{% include adsense.html %}
+
+
 ### 프로그래머스_힙_더맵게
 - 계산식: 섞은 음식의 스코빌 지수 = 가장 맵지 않은 음식의 스코빌 지수 + (두 번째로 맵지 않은 음식의 스코빌 지수 * 2)
 
