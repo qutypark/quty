@@ -6,8 +6,6 @@ categories: Algorithms
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12117)
 
 
-{% include adsense.html %}
-
 
 ### 프로그래머스_힙_디스크 컨트롤러
 
