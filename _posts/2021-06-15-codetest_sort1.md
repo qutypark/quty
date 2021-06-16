@@ -7,7 +7,6 @@ categories: Algorithms
 
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12198)
 
-{% include adsense.html %}
 
 
 - 어떤 과학자가 발표한 논문의 인용 횟수를 담은 배열 citations가 매개변수로 주어질 때, <br>
