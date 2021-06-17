@@ -108,8 +108,7 @@ google_analytics: UA-196504970-1
 # Site Author
 author:
   name             : "Helen"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "even onestep"
+  avatar           : "/assets/image/avatar.png"
   location         : "present"
   email            :
   links:
