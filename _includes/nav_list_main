@@ -9,7 +9,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "data_analysis" %}
-                        <li><a href="/categories/data_analysis" class="">data_analysis ({{category[1].size}})</a></li>
+                        <li><a href="/categories/#data_analysis" class="">data_analysis ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -18,14 +18,14 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Hadoop" %}
-                        <li><a href="/categories/Hadoop" class="">Hadoop ({{category[1].size}})</a></li>
+                        <li><a href="/categories/#hadoop" class="">Hadoop ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
         <span class="nav__sub-title">MachineLearning</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "MachineLearning" %}
-                        <li><a href="/categories/MachineLearning" class="">MachineLearning ({{category[1].size}})</a></li>
+                        <li><a href="/categories/#machinelearning" class="">MachineLearning ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -34,7 +34,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Algorithms" %}
-                        <li><a href="/categories/Algorithms" class="">Algorithms ({{category[1].size}})</a></li>
+                        <li><a href="/categories/#algorithms" class="">Algorithms ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
       </li>
