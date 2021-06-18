@@ -25,7 +25,7 @@ def solution(number, k):
 ```
 
 #### 2. 풀이방법(실패)
->>> 조합을 이용 -> 시간 효율 떨어지는 답
+조합을 이용 -> 시간 효율 떨어지는 답
 
 ```python
 from itertools import combinations
