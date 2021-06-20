@@ -1,6 +1,6 @@
 ---
 title: “Programmers_Python_DP_N으로표현"
-date: 2021-06-18
+date: 2021-06-20
 categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/12263)
@@ -10,7 +10,11 @@ categories: Algorithms
 - 숫자 N과 number가 주어질 때, N과 사칙연산만 사용해서 표현 할 수 있는 방법 중 N 사용횟수의 최솟값을 return <br>
 - 제한조건: 최솟값이 8보다 크면 -1을 return
 #### 풀이방식
-1~8동안의 루프에서 만들어지는 수 집합 중, number가 있는 최소 수를 찾아내기
+>[동적계획법](https://ko.wikipedia.org/wiki/동적_계획법)<br>
+>> 일반적으로 주어진 문제를 풀기 위해서, 문제를 여러 개의 하위 문제(subproblem)로 나누어 푼 다음, <br>
+>> 그것을 결합하여 최종적인 목적에 도달하는 것이다.
+
+> 1~8동안의 루프에서 만들어지는 수 집합 중, number가 있는 최소 수를 찾아내기
 
 
 ```python
