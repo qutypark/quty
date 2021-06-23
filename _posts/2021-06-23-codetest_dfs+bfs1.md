@@ -1,5 +1,5 @@
 ---
-title: “Programmers_Python_DFS+BFS_정수삼각형"
+title: “Programmers_Python_DFS+BFS_네트워크"
 date: 2021-06-23
 categories: Algorithms
 ---
