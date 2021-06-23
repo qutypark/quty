@@ -1,5 +1,5 @@
 ---
-title: “Programmers_Python_DFS+BFS_네트워크"
+title: “Programmers_Python_DFS+BFS_타겟넘버"
 date: 2021-06-23
 categories: Algorithms
 ---
