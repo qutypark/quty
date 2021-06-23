@@ -28,8 +28,8 @@ def dfs(num, tar, idx, val):
         else:
             return
     else:
-        dfs(num, tar, idx+1, val+num[idx])
-        dfs(num, tar, idx+1, val-num[idx])
+        dfs(num, tar, idx+1, val+num[idx]) # 재귀
+        dfs(num, tar, idx+1, val-num[idx]) # 재귀
 def solution_dfs(num, tar):
     global ans # 전역변수
     dfs(num, tar, 0, 0)
@@ -39,7 +39,7 @@ def solution_dfs(num, tar):
 #### 풀이방법_2
 > #### [BFS 넓이 우선 탐색](https://www.geeksforgeeks.org/difference-between-bfs-and-dfs/)
 > queue이용
->> 레벨이 전체 길이에 도달했을 때, 타겟과 같은  덧셈 뺄셈 반복의 결과값 갯수
+>> 레벨이 전체 길이에 도달했을 때, 타겟과 같은 덧셈 뺄셈 반복의 결과값 갯수
 ```python
 from collections import deque
 
