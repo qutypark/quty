@@ -19,7 +19,6 @@ categories: Algorithms
 - DFS
 > 딕셔너리로 그래프 생성
 
-
 ```python
 from collections import defaultdict
 
@@ -53,7 +52,6 @@ def solution(tick):
 
 >> 잘못된 코드
 >>> 막다른 길의 존재를 고려하지 않음
-
 
 ```python
 def solution(tick):
