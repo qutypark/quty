@@ -18,6 +18,7 @@ categories: Algorithms
 #### 풀이 방법
 - BFS 
 > 탐색 큐와 방문 노드 지정하는 리스트
+
 ```python
 from collections import deque
 def solution(n, com):
@@ -40,9 +41,11 @@ def solution(n, com):
                     
         ans += 1 
     return(ans)
-
 ```
+
 > 풀이 코멘트 포함
+
+
 ```python
 from collections import deque
 def solution(n, com):
@@ -66,5 +69,4 @@ def solution(n, com):
                     
         ans += 1 # 해당 노드에 대한 네트워크 탐색이 끝났으므로, 갯수 추가
     return(ans)
-
 ```
