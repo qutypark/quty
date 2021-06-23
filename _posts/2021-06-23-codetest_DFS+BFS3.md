@@ -16,6 +16,7 @@ categories: Algorithms
 > #### [DFS 깊이 우선 탐색](https://www.geeksforgeeks.org/difference-between-bfs-and-dfs/)
 > 스택과 재귀 이용
 >> idx값이 전체 길이와 같고, 값이 타겟값과 같아질 때까지, 덧셈과 뺄셈을 계속하는 재귀함수
+
 ```python
 ans = 0 # 전역변수
 # 재귀함수 지정
@@ -40,6 +41,7 @@ def solution_dfs(num, tar):
 > #### [BFS 넓이 우선 탐색](https://www.geeksforgeeks.org/difference-between-bfs-and-dfs/)
 > queue이용
 >> 레벨이 전체 길이에 도달했을 때, 타겟과 같은 덧셈 뺄셈 반복의 결과값 갯수
+
 ```python
 from collections import deque
 
@@ -60,6 +62,7 @@ def solution(num, tar):
 > #### [brute_force](https://en.wikipedia.org/wiki/Brute-force_search)
 > product을 이용한 [카르테시안 product](https://en.wikipedia.org/wiki/Cartesian_product)
 >> 생성된 카르테시안 product을 합으로 맵핑 후, 타겟 넘버 카운트
+
 ```python
 from itertools import product
 
