@@ -71,14 +71,9 @@ def soltuion(dis, rock, n):
 ```
 
 
-<details>
-  <summary>실패 코드(시간효율X)_brute force</summary>
-
-    
-> brute_force
->> 제거 돌의 조합으로 -> 최솟값을 계산해나감
-
-    
+> 실패 (시간 효율 X)
+>> brute_force
+>>> 제거 돌의 조합으로 -> 최솟값을 계산해나감
 
 ```python
 from itertools import combinations
@@ -101,4 +96,3 @@ def solution(dis, rock, n):
             m = max(m, min(dis_b))
     return m
 ```
-</details>
