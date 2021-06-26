@@ -60,6 +60,7 @@ def solution(n, edge):
 ```
 >>  실패 코드
 >>> 풀이방식은 bfs로 비슷하나, dictionary중복사용으로 시간효율 X
+
 ```python
 
 from collections import defaultdict
