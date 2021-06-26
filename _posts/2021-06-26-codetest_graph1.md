@@ -5,8 +5,11 @@ categories: Algorithms
 ---
 
 
+
 > [문제링크](https://programmers.co.kr/learn/courses/30/parts/14393)
 
+
+### 프로그래머스_python_그래프_순위
 
 - 선수의 수 n, 경기 결과를 담은 2차원 배열 results가 매개변수로 주어질 때 <br>
   정확하게 순위를 매길 수 있는 선수의 수를 return
