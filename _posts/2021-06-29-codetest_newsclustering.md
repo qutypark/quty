@@ -89,6 +89,7 @@ def solution(st1, st2):
 
 >> 다른 사람 풀이1
 >> - [isalpha()](https://www.w3schools.com/python/ref_string_isalpha.asp)를 응용
+
 ```python
 from collections import Counter
 def solution(str1, str2):
