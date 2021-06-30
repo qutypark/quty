@@ -12,9 +12,6 @@ categories: Algorithms
   각 작업의 개발 속도가 적힌 정수 배열 speeds가 주어질 때<br> 
   각 배포마다 몇 개의 기능이 배포되는지를 return<br> 
 
-- progress = [93, 30, 55]
-- speeds = [1, 30, 5]
-
 ### 풀이방식
 
 ####  1. dictionary의 value에 값을 더해나감
@@ -38,6 +35,9 @@ categories: Algorithms
 #### 코드 1(dictionary이용)
 
 ```python
+# progress = [93, 30, 55]
+# speeds = [1, 30, 5]
+
 import math
 
 def solution(prog, speed):
@@ -58,6 +58,9 @@ def solution(prog, speed):
 #### 코드 2(queue이용)
 
 ```python
+# progress = [93, 30, 55]
+# speeds = [1, 30, 5]
+
 import math
 def solution(progresses, speeds):
     queue=[]
