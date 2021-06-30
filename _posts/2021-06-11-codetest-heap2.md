@@ -12,15 +12,31 @@ categories: Algorithms
 - 각 작업에 대해 [작업이 요청되는 시점, 작업의 소요시간]을 담은 2차원 배열 jobs가 매개변수로 주어질 때, 
 - 작업의 요청부터 종료까지 걸린 시간의 평균을 가장 줄이는 방법으로 처리하면 평균이 얼마가 되는지 return.
 
-- job = [[0, 3], [1, 9], [2, 6]]
 
-#### 풀이방식
-- 핵심: 
-[First Come First Served(FCFS)](https://www.geeksforgeeks.org/program-for-fcfs-cpu-scheduling-set-1/)이 아닌 ->  " [Shortest Job First(SJF)](https://www.guru99.com/shortest-job-first-sjf-scheduling.html)
-"
-- [heapq](https://docs.python.org/3/library/heapq.html)사용
+### 풀이방식
+#### 핵심
+- [First Come First Served(FCFS)](https://www.geeksforgeeks.org/program-for-fcfs-cpu-scheduling-set-1/)이 아닌 ->  " [Shortest Job First(SJF)](https://www.guru99.com/shortest-job-first-sjf-scheduling.html)"<br>
+즉 요청이 오는 순서대로가 아닌, **작업 소요시간이 짧은** 순서대로 처리하는 것<br>
+
+- [heapq](https://docs.python.org/3/library/heapq.html)사용(힙 우선순위 큐)
+
+#### 코드 구현
+- 0. 누적 시간, 현 시점, 처리량, 시작 시점의 변수 생성
+- 1. 처리량이 총 작업 수보다 작을 때까지
+
+>   소요시간 짧은 순서대로 큐 생성<br>
+>>  1.1.  시작 시점과 현 시점 사이에 있는 시점 큐가 존재하면<br>
+>>>  1.1.1  시작 시점을 현 시점으로 갱신<br>
+>>>  1.1.2  짧은 순서대로 ->  현 시점 = 각 소요시간을 누적<br>
+>>>  1.1.3  짧은 순서대로 ->  총 걸린 시간 = (현 시점 -  각 요청시점)을 누적<br>
+
+>>  1.2   시작 시점과 현 시점 사이에 있는 시점 큐가 존재하지 않으면<br>
+>>> 1.2.1 현 시점을 +1 해나감
+
+- 2. 다 처리 했다면, 평균 구함
 
 ```python
+# job = [[0, 3], [1, 9], [2, 6]]
 import heapq
 def solution(jobs):
     ans,now,i = 0,0,0
