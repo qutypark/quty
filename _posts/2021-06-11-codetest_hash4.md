@@ -13,9 +13,12 @@ categories: Algorithms
 - clothes = [["yellowhat", "headgear"], ["bluesunglasses", "eyewear"], ["green_turban", "headgear"]]
 
 #### 풀이방식
-- 조합: (a+1)(b+1)(c+1)
+
+해쉬를 이용한다기보다, 순열 조합만으로  문제없이 풀 수 있는 문제
+
+- **조합**: (a+1)(b+1)(c+1)
 - 위 조합에서 1 뺌 (1은 아무것도 입지 않았을 경우)
-- Counter을 이용
+- [Counter](https://docs.python.org/3/library/collections.html#collections.Counter)을 이용
 
 ```python
 from collections import Counter
