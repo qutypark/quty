@@ -25,8 +25,9 @@ ex) 1일때는 오른쪽 위로 이동
 >방은 다른 방으로 둘러 싸여질 수 있습니다.<br>
     
 - 예시
-    
+<br>
 <img src="https://grepp-programmers.s3.amazonaws.com/files/ybm/74fd8df438/22a1ee81-75a6-4220-bd15-6230e35e2931.png" width="35%" height="35%">
+<br>   
     
 - (0,0) 부터 시작해서 6(왼쪽) 으로 3번 이동합니다. 
 - 그 이후 주어진 arrows 를 따라 그립니다.
