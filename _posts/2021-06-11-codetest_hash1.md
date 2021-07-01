@@ -3,7 +3,7 @@ title: "Programmers_Python_Hash_완주하지못한선수"
 date: 2021-06-11
 categories: Algorithms
 ---
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12077)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42576)
 
 
 ### 프로그래머스_해쉬_완주하지못한선수
