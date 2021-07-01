@@ -12,10 +12,7 @@ categories: Algorithms
 
 <img src="https://grepp-programmers.s3.amazonaws.com/files/ybm/ec8f232bf0/a47a6c2e-ec84-4bfb-9d4b-ff3ba589b42a.png" width="35%" height="35%">
 
-<details>
-    <summary>문제 설명</summary>
     
-ex) 1일때는 오른쪽 위로 이동
 그림을 그릴 때, 사방이 막히면 방하나로 샙니다. <br>
 이동하는 방향이 담긴 배열 arrows가 매개변수로 주어질 때, 방의 갯수를 return <br>
 - 제한사항
@@ -25,9 +22,9 @@ ex) 1일때는 오른쪽 위로 이동
 >방은 다른 방으로 둘러 싸여질 수 있습니다.<br>
     
 - 예시
-<br>
+
 <img src="https://grepp-programmers.s3.amazonaws.com/files/ybm/74fd8df438/22a1ee81-75a6-4220-bd15-6230e35e2931.png" width="35%" height="35%">
-<br>   
+
     
 - (0,0) 부터 시작해서 6(왼쪽) 으로 3번 이동합니다. 
 - 그 이후 주어진 arrows 를 따라 그립니다.
