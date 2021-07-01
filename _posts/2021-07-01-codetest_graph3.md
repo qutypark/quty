@@ -1,5 +1,5 @@
 ---
-title: “Programmers_Python_방의 갯수"
+title: “Programmers_Python_그래프_방의 갯수"
 date: 2021-07-01
 categories: Algorithms
 ---
