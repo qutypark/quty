@@ -3,7 +3,7 @@ title: “Programmers_Python_greedy_큰 수 만들기"
 date: 2021-06-18
 categories: Algorithms
 ---
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12244)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42883)
 
 
 ### 프로그래머스_탐욕법(Greedy)_큰 수 만들기
