@@ -3,7 +3,7 @@ title: “Programmers_Python_greedy_camera"
 date: 2021-06-15
 categories: Algorithms
 ---
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12244)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42884)
 
 ### [그리디 알고리즘](https://namu.wiki/w/그리디%20알고리즘?from=탐욕법)이란
 일명 욕심쟁이 알고리즘=탐욕법으로  <br>
