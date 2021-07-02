@@ -3,7 +3,7 @@ title: “Programmers_Python_greedy_섬연결하기"
 date: 2021-06-18
 categories: Algorithms
 ---
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12244)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42861)
 
 
 ### 프로그래머스_탐욕법(Greedy)_섬연결하기
@@ -14,6 +14,7 @@ categories: Algorithms
 - 가장 적은 비용으로 모든 노드를 연결하기 위해 사용하는 알고리즘
 - 최소 스패닝 트리를 찾음으로써 간선의 가중치의 합이 최솟값이 되도록 하는 알고리즘
 - 동작 원리
+: 크루스칼 알고리즘과 집합 비트연산 활용
 
 > 1. 모든 간선들의 가중치를 오름차 순으로 정렬
 > 2. 모든 노드를 원소로 갖는 집합 S를 생성
