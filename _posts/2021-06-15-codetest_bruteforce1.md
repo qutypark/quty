@@ -3,15 +3,19 @@ title: “Programmers_Python_bruteforce_primenumber"
 date: 2021-06-15
 categories: Algorithms
 ---
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12230)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42839)
 
 
 ### 프로그래머스_완전탐색_소수 찾기
 
 - 각 종이 조각에 적힌 숫자가 적힌 문자열 numbers가 주어졌을 때, 종이 조각으로 만들 수 있는 소수가 몇 개인지 return 
 
-#### 풀이방법
-> 1. [에라토스테네스의 체](https://ko.wikipedia.org/wiki/에라토스테네스의_체)
+### 풀이방법
+[에라토스테네스의 체](https://ko.wikipedia.org/wiki/에라토스테네스의_체)
+
+1. 종이 조각으로 만들 수 있는 모든 수의 조합
+2. 소수의 리스트를 만듦: 에라토스테네스의 체를 통해
+3. 만들 수 있는 모든 수 조합 중 소수 리스트에 해당되는 카운트
 
 ```python
 from itertools import permutations
