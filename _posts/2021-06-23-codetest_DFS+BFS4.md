@@ -3,7 +3,7 @@ title: “Programmers_Python_DFS+BFS_단어변환"
 date: 2021-06-23
 categories: Algorithms
 ---
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12421)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/43163)
 
 
 ### 프로그래머스_DFS+BFS_단어변환
