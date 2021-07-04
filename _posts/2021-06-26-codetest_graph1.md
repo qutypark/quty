@@ -6,7 +6,7 @@ categories: Algorithms
 
 
 
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/14393)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/49191)
 
 
 ### 프로그래머스_python_그래프_순위
