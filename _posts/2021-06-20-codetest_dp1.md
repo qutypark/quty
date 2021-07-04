@@ -3,7 +3,7 @@ title: “Programmers_Python_DP_N으로표현"
 date: 2021-06-20
 categories: Algorithms
 ---
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12263)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42895)
 
 
 ### 프로그래머스_동적계획법(DP)_N으로 표현하기
