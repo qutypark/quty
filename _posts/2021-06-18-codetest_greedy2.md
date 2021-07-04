@@ -10,7 +10,8 @@ categories: Algorithms
 > n개의 섬 사이에 다리를 건설하는 비용(costs)이 주어질 때, <br>
   최소의 비용으로 모든 섬이 서로 통행 가능하도록 만들 때 필요한 최소 비용을 return 
 
-#### 알고리즘: MST (최소신장트리) 중 [Kruskal MST](https://ko.wikipedia.org/wiki/크러스컬_알고리즘)
+#### 알고리즘: 
+MST (최소신장트리) 중 [Kruskal MST](https://ko.wikipedia.org/wiki/크러스컬_알고리즘)
 - 가장 적은 비용으로 모든 노드를 연결하기 위해 사용하는 알고리즘
 - 최소 스패닝 트리를 찾음으로써 간선의 가중치의 합이 최솟값이 되도록 하는 알고리즘
 - 동작 원리
@@ -26,6 +27,22 @@ categories: Algorithms
 > 사이클 생성X: 추가하려는 간선의 양 노드가 같은 집합에 속하지 않는 것<br>
 > 이를 위한 판별법: [Union-Find 알고리즘](https://www.geeksforgeeks.org/union-find-algorithm-set-2-union-by-rank/)
 
++) Union-Find 알고리즘
+
+그래프 알고리즘으로 두 노드가 같은 그래프에 속하는지 판별 <br>
+상호 배타적 집합(Disjoint-Set)으로도 불림
+
+- 두 개의 노드를 같은 집합으로 묶어주고, (Union)
+- 두 노드가 같은 집합에 있는지 확인 (Find)
+
+
+> Union
+>>  노드 x가 포함된 집합과 노드 y가 포함된 집합을 합치는 연산
+
+> Find
+>>  노드 x가 어느 집합에 포함되어 있는지 찾는 연산
+  
+
   
 ```python
 def solution(n, costs):
@@ -37,7 +54,7 @@ def solution(n, costs):
     for i in costs:  
         temp1 = set()
         temp2 = set()
-        for j in set_S: # S가 비어있지 않는 동안
+        for j in set_S: # S가 비어있지 않는 동안 FIND
             if i[0] in j:
                 temp1 = j
             if i[1] in j:
@@ -47,7 +64,7 @@ def solution(n, costs):
         else: # 2개의 노드가 연결되어 있지 않다면
             set_S.remove(temp1) # 집합 S에서 해당 노드를 버리고
             set_S.remove(temp2)
-            set_S.append(temp1|temp2) # 2개의 노드를 서로 연결한다.
+            set_S.append(temp1|temp2) # 2개의 노드를 서로 연결한다. UNION
             answer += i[2]
             if len(set_S) == 1: # 집합 S의 수가 1이 되면 멈춘다.(=모두 연결된 상태)
                 break
