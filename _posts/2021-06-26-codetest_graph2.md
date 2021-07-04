@@ -5,7 +5,7 @@ categories: Algorithms
 ---
 
 
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/14393)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/49189)
 
 
 ### 프로그래머스_python_graph_가장 먼 노드
@@ -18,7 +18,10 @@ categories: Algorithms
 > - vertex 배열 각 행 [a, b]는 a번 노드와 b번 노드 사이에 간선이 있다는 의미.
 
 #### 풀이방법
-> BFS 
+BFS 
+> 1) deque: 거리를 누적하는 탐색 함수 작성
+> 2) defaultdict: 양 간선을 연결하는 그래프
+> 2) 최대 거리를 가지는 노드의 갯수 출력 
 
 ```python
 from collections import defaultdict
