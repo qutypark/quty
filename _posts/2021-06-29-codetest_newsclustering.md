@@ -59,6 +59,7 @@ categories: Algorithms
 
 
 ```python
+from collections import Counter
 def solution(st1, st2):
     wd1, wd2 = [], []
 
