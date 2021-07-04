@@ -5,7 +5,7 @@ categories: Algorithms
 ---
 
 
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12486)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/43236)
 
 ### 프로그래머스_python_이분탐색_징검다리
 
