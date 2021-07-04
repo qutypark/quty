@@ -3,7 +3,7 @@ title: “Programmers_Python_DP_등굣길"
 date: 2021-06-20
 categories: Algorithms
 ---
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12263)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42898)
 
 ### 프로그래머스_동적계획법(DP)_등굣길
 - 격자의 크기 m, n과 물이 잠긴 지역의 좌표를 담은 2차원 배열 puddles이 매개변수. 
