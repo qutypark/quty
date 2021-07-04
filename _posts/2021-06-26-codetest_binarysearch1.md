@@ -5,7 +5,7 @@ categories: Algorithms
 ---
 
 
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12486)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/43238)
 
 ### 프로그래머스_python_이분탐색_입국심사
 
