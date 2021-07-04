@@ -3,7 +3,7 @@ title: “Programmers_Python_DP_정수삼각형"
 date: 2021-06-20
 categories: Algorithms
 ---
-> [문제링크](https://programmers.co.kr/learn/courses/30/parts/12263)
+> [문제링크](https://programmers.co.kr/learn/courses/30/lessons/43105)
 
 ### 프로그래머스_동적계획법(DP)_정수 삼각형
 - 삼각형의 정보가 담긴 배열 triangle이 매개변수로 주어질 때, 거쳐간 숫자의 최댓값을 return.
