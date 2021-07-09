@@ -15,7 +15,7 @@ categories: Algorithms
 <details>
   <summary>문제 설명</summary>
 
-#### 입출력 예 #1<br>
+입출력 예 #1<br>
 [* , +, -] 로 연산자 우선순위를 정했을 때, 가장 큰 절댓값을 얻을 수 있습니다.<br>
 연산 순서는 아래와 같습니다.<br>
  <br>
