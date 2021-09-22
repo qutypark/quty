@@ -3,3 +3,9 @@ Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from 
 */
 select distinct(city) from station
 where lower(substr(city,1,1)) in ('a','e','i','o','u');
+
+/*
+regexp
+*/
+select distinct(city) from station
+where city regexp '^[aeiouAEIOU]';
