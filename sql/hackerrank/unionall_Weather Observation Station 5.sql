@@ -8,3 +8,7 @@ select * from (select city, length(city) as citylen from station order by cityle
 union
 select * from (select city, length(city) as citylen from station order by citylen desc, city desc limit 1) as b;
 
+/*
+union all(union) with order by
+--> subquery is necessary
+*/
