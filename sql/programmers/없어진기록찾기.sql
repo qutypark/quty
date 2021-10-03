@@ -5,3 +5,12 @@ where animal_id not in(SELECT o.animal_id
                        join animal_ins i 
                        on o.animal_id=i.animal_id)
 order by animal_id;
+
+/*
+or
+*/
+
+SELECT A.ANIMAL_ID, A.NAME
+FROM ANIMAL_OUTS A LEFT JOIN ANIMAL_INS B
+ON A.ANIMAL_ID = B.ANIMAL_ID
+WHERE B.ANIMAL_ID IS NULL
