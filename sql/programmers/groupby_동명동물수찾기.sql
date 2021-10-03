@@ -6,6 +6,16 @@ group by name
 order by name;
 
 /*
+simplest
+*/
+
+SELECT NAME, COUNT(*) AS count
+FROM ANIMAL_INS
+GROUP BY NAME
+HAVING count(*) > 1
+ORDER BY NAME
+
+/*
 or
 */
 
