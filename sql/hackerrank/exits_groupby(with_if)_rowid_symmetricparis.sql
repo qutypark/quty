@@ -18,3 +18,16 @@ GROUP BY fx,fy
 HAVING count(*) > 1
 order by fx;
 
+
+/*
+rowid
+*/
+
+select a.x, a.y
+from
+(SELECT @row_number:=@row_number+1 AS rowid,x,y FROM functions, (SELECT @row_number:=0)as t order by x) as a
+inner join 
+(SELECT @row_number1:=@row_number1+1 AS rowid,x,y FROM functions, (SELECT @row_number1:=0)as t order by x) as b
+on a.x = b.y and a.y = b.x and a.rowid < b.rowid
+order by a.x;
+
