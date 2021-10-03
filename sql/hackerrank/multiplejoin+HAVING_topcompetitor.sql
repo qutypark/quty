@@ -4,11 +4,12 @@
  If more than one hacker received full scores in same number of challenges, then sort them by ascending hacker_id.
 */
 
-select h.hacker_id, h.name from Hackers h
-inner join Submissions s on s.hacker_id = h.hacker_id
-inner join Challenges c on c.challenge_id = s.challenge_id 
-inner join Difficulty d on d.difficulty_level = c.difficulty_level
-where d.score = s.score
-group by h.hacker_id having count(*) > 1
-order by count(*) desc, h.hacker_id asc;
-
+select h.hacker_id,h.name
+from hackers h
+inner join submissions s on h.hacker_id=s.hacker_id
+inner join Challenges c on s.challenge_id=c.challenge_id
+inner join difficulty d on c.difficulty_level=d.difficulty_level
+where s.score=d.score and c.difficulty_level=d.difficulty_level
+group by h.hacker_id,h.name
+having count(s.hacker_id)>1
+order by count(s.hacker_id) desc, s.hacker_id asc;
