@@ -31,3 +31,26 @@ inner join
 on a.x = b.y and a.y = b.x and a.rowid < b.rowid
 order by a.x;
 
+
+/*
+union all
+*/
+
+select x, y
+from
+(
+    select x, y 
+    from   functions 
+    where  x = y
+    group by x, y 
+    having count(*) > 1
+    union all
+    select distinct f1.x, f1.y
+    from   functions f1 
+    join   functions f2 on  f1.x = f2.y
+                        and f1.y = f2.x
+                        and f1.x != f2.x
+) a
+where a.x <= a.y
+order by a.x
+;
