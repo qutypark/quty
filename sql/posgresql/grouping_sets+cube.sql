@@ -13,7 +13,17 @@ GROUP BY
         (segment),
         ()
     );
-    
+
+-- cube
+SELECT
+    brand,
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    cube (brand, segment);
+
     
 -- brand.segments / brand / segment 
 
