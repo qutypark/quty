@@ -1,4 +1,14 @@
--- grouping_sets((c1, c2, c3)
+-- grouping_sets
+GROUPING SETS (
+    (c1,c2,c3), 
+    (c1,c2),
+    (c1,c3),
+    (c2,c3),
+    (c1),
+    (c2),
+    (c3), 
+    ()
+ ) 
 
 -- cube(c1, c2, c3)
 (c1, c2, c3)
