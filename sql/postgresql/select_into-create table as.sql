@@ -12,4 +12,19 @@ WHERE
 AND rental_duration = 5
 ORDER BY
     title;
+    
+    
+-- create table as
 
+CREATE TABLE film_r AS
+SELECT
+    film_id,
+    title,
+    rental_rate
+FROM
+    film
+WHERE
+    rating = 'R'
+AND rental_duration = 5
+ORDER BY
+    title;
