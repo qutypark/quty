@@ -28,3 +28,17 @@ WHERE
 AND rental_duration = 5
 ORDER BY
     title;
+  
+-- create table as + with Column Aliases
+
+CREATE TABLE IF NOT EXISTS film_rating (rating, film_count) 
+AS 
+SELECT
+    rating,
+    COUNT (film_id)
+FROM
+    film
+GROUP BY
+    rating;
+    
+    
