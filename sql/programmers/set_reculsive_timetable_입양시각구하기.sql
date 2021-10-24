@@ -1,3 +1,16 @@
+-- my own
+select t2.hour as hour, coalesce(t1.cnt, 0) as count
+from 
+(select hour(datetime) as hour, count(animal_id) as cnt
+from animal_outs group by hour) as t1
+right join
+(select @row_number:=@row_number+1 as hour 
+ from animal_outs, (select @row_number:=-1) as t limit 24) as t2
+ on t1.hour = t2.hour
+order by hour;
+
+
+
 /*
 set @row_n
 */
