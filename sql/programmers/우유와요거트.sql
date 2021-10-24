@@ -5,14 +5,10 @@ group by cart_id
 having count(*) = 2
 order by cart_id;
 
-/*
-other ans
-*/
 
+-- other ans
 
-/*
-subquery
-*/
+-- subquery
 
 select cart_id
 from cart_products
@@ -20,9 +16,7 @@ where name = 'Yogurt' and
 cart_id in (select cart_id from cart_products where name ='Milk')
 order by cart_id;
 
-/*
-inner join
-*/
+-- inner join_1
 
 select a.cart_id
 from cart_products as a inner join cart_products as b
@@ -30,9 +24,15 @@ on a.cart_id = b.cart_id
 where a.name="Milk" and b.name='Yogurt'
 order by cart_id;
 
-/*
-group_concat
-*/
+-- inner join_2
+
+select distinct(m.cart_id) as cart_id
+from (select cart_id from cart_products where name = "Milk") as m
+join (select cart_id from cart_products where name = "Yogurt") as y
+on m.cart_id = y.cart_id
+order by cart_id;
+
+-- group_concat
 
 SELECT cart_id from(select cart_id, group_concat(distinct name) as NAME 
 from cart_products group by cart_id) as tmp
