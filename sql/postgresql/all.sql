@@ -1,4 +1,4 @@
--- returns the average lengths of all films grouped by film rating:
+-- To find all films whose lengths are greater than the list of the average lengths above, 
 
 SELECT
     film_id,
