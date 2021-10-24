@@ -1,3 +1,12 @@
+-- most simple
+
+select NAME, DATETIME
+from ANIMAL_INS
+where ANIMAL_ID not in (select ANIMAL_ID from ANIMAL_OUTS)
+order by DATETIME
+limit 3;
+
+-- else
 
 select name, datetime
 from animal_ins
@@ -7,6 +16,7 @@ where animal_id not in(select i.animal_id from animal_ins as i
 order by datetime asc
 limit 3;
 
+-- else
 
 SELECT I.NAME, I.DATETIME
 FROM ANIMAL_INS AS I
