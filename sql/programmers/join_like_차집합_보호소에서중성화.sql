@@ -20,6 +20,14 @@ order by o.animal_id;
 차집합
 */
 
+select outs.animal_id as id, outs.animal_type as type, outs.name as name
+from animal_outs as outs
+join animal_ins as ins
+on outs.animal_id = ins.animal_id  and outs.SEX_UPON_OUTCOME != ins.SEX_UPON_INTAKE
+order by id;
+
+--
+
 select o.animal_id, o.animal_type, o.name
 from animal_outs o
 left join animal_ins i 
@@ -27,7 +35,7 @@ on o.animal_id = i.animal_id
 where i.sex_upon_intake != o.sex_upon_outcome
 order by o.animal_id;
 
-
+--
 
 select ai.animal_id, ai.animal_type, ai.name
 from 
