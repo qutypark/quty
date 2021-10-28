@@ -1,3 +1,19 @@
+-- with multiple temporary table
+with t1 as(
+    select @row_num := @row_num+1 as hour
+    from animal_outs, (select @row_num:=-1) as tmp
+    where @row_num < 23),
+    t2 as(
+        select hour(datetime) as hour, count(*) as cnt 
+        from animal_outs group by hour
+    )
+
+select t1.hour, coalesce(t2.cnt, 0) as count
+from t2
+right join t1 on t1.hour = t2.hour
+order by t1.hour;
+ 
+
 -- my own
 select t2.hour as hour, coalesce(t1.cnt, 0) as count
 from 
