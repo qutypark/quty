@@ -25,3 +25,11 @@ select name, region
 from bbc
 where gdp > (select max(gdp) from bbc where region="Africa")
 
+-- 5. Select the statement that shows the medium population density of each region
+
+select region, sum(population)/sum(area) as density 
+from bbc
+group by region
+
+
+
