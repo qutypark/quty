@@ -13,6 +13,10 @@ SELECT '15 minute'::interval,
  '3 month'::interval;
 
 
+-- Now, we have to convert all values in the rating column into integers, 
+-- all other A, B, C ratings will be displayed as zero. 
+-- To do this, you use the CASE expression with the type CAST as shown in the following query:
+
 SELECT
 	id,
 	CASE
@@ -23,3 +27,4 @@ SELECT
 		END as rating
 FROM
 	ratings;
+
