@@ -96,10 +96,50 @@ drop column `lastname`;
     alter table `test_1`
     drop foreign key test_1_ibfk_1;
     
+ -- 3.3 auto_increment (for primary key)
+    --1) lock tables for both primary key table and foreign key table
+    LOCK TABLES test_1 write;
+    lock tables test write;
     
+    --2) drop foreign constraint
+    alter table test_1
+    drop foreign key test_1_ibfk_1;
     
+    --3) alter table add auto_increment
+    alter table test
+    modify id int not null auto_increment;
+    
+    --4) unlock table
+    unlock tables;
+    
+    --5) return foreign key
+    alter table test_1
+    add foreign key(personid) references test(id);
     
 
+-- 4. insert into
+    --0)
+    insert into test_1 (orderid, ordernumber, personid)
+    value (123, 500, 123), (124, 600, 124);
+    
+    --1) with foreign key
+    INSERT INTO test_1
+    set ordernumber = 500,
+    personid=(select id from test where nickname = 'jihe');
+
+
+-- 5. delete from table  / truncate table 
+
+    truncate table test_1;
+    -- delete * from test_1  is not working
+    
+    delete from test_1
+    where orderid=1;
+
+-- 6. drop table
+
+drop table test_1;
+drop table test;
 
 
 
