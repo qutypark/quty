@@ -5,6 +5,7 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/68645)
 
+{% include adsense.html %}
 
 ### 프로그래머스_모든문제_삼각달팽이
 월간코드 챌린지 시즌 1
