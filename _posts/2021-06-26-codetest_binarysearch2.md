@@ -7,6 +7,8 @@ categories: Algorithms
 
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/43236)
 
+{% include adsense.html %}
+
 ### 프로그래머스_python_이분탐색_징검다리
 
 - 출발지점부터 도착지점까지의 거리 distance, 바위들이 있는 위치를 담은 배열 rocks, 제거할 바위의 수 n이 매개변수로 주어질 때, <br>
