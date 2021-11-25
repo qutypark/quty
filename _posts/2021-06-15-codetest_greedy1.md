@@ -5,6 +5,8 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42884)
 
+{% include adsense.html %}
+
 ### [그리디 알고리즘](https://namu.wiki/w/그리디%20알고리즘?from=탐욕법)이란
 일명 욕심쟁이 알고리즘=탐욕법으로  <br>
 **"매 선택에서 지금 이 순간 당장 최적인 답을 선택하여 적합한 결과를 도출하자"**<br>
