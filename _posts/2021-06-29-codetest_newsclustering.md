@@ -6,6 +6,7 @@ categories: Algorithms
 
 [문제링크](https://programmers.co.kr/learn/courses/30/lessons/17677)
 
+{% include adsense.html %}
 
 ### 프로그래머스_모든문제_뉴스클러스터링
 
