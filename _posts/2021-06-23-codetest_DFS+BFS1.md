@@ -5,6 +5,8 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/43162)
 
+{% include adsense.html %}
+
 ### 프로그래머스_DFS+BFS_네트워크
 
 
