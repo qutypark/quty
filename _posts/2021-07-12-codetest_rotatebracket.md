@@ -6,6 +6,7 @@ categories: Algorithms
 
 [문제링크](https://programmers.co.kr/learn/courses/30/lessons/76502)
 
+{% include adsense.html %}
 
 ### 프로그래머스_모든문제_괄호회전하기
 
