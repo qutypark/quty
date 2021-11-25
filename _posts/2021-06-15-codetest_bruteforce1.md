@@ -5,6 +5,7 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42839)
 
+{% include adsense.html %}
 
 ### 프로그래머스_완전탐색_소수 찾기
 
