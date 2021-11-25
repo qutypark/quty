@@ -5,6 +5,7 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42897)
 
+{% include adsense.html %}
 
 ### 프로그래머스_동적계획법(DP)_도둑질
 - 각 집들은 서로 인접한 집들과 방범장치가 연결되어 있기 때문에 인접한 두 집을 털면 경보 울림.
