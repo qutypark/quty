@@ -6,6 +6,7 @@ categories: Algorithms
 
 [문제링크](https://programmers.co.kr/learn/courses/30/lessons/81302)
 
+{% include adsense.html %}
 
 ### 프로그래머스_모든문제_거리두기확인하기
 카카오 2021 채용연계형 인턴십 문제
