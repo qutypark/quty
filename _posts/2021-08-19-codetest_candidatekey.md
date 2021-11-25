@@ -6,6 +6,7 @@ categories: Algorithms
 
 [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42890)
 
+{% include adsense.html %}
 
 ### 프로그래머스_모든문제_후보키
 2019 KAKAO BLIND RECRUITMENT
