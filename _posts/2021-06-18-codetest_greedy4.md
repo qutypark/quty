@@ -5,6 +5,7 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42883)
 
+{% include adsense.html %}
 
 ### 프로그래머스_탐욕법(Greedy)_큰 수 만들기
 - 문자열 형식의 숫자 number에서 k 개의 수를 제거했을 때 <br>
