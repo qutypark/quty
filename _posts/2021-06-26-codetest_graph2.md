@@ -7,6 +7,7 @@ categories: Algorithms
 
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/49189)
 
+{% include adsense.html %}
 
 ### 프로그래머스_python_graph_가장 먼 노드
 
