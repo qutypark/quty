@@ -5,6 +5,8 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42898)
 
+{% include adsense.html %}
+
 ### 프로그래머스_동적계획법(DP)_등굣길
 - 격자의 크기 m, n과 물이 잠긴 지역의 좌표를 담은 2차원 배열 puddles이 매개변수. 
 - 집에서 학교까지 갈 수 있는 최단경로의 개수를 1,000,000,007로 나눈 나머지를 return.
