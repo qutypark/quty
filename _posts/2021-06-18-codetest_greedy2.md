@@ -5,6 +5,7 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42861)
 
+{% include adsense.html %}
 
 ### 프로그래머스_탐욕법(Greedy)_섬연결하기
 > n개의 섬 사이에 다리를 건설하는 비용(costs)이 주어질 때, <br>
