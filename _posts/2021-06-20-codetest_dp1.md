@@ -5,6 +5,7 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42895)
 
+{% include adsense.html %}
 
 ### 프로그래머스_동적계획법(DP)_N으로 표현하기
 - 숫자 N과 number가 주어질 때, N과 사칙연산만 사용해서 표현 할 수 있는 방법 중 N 사용횟수의 최솟값을 return <br>
