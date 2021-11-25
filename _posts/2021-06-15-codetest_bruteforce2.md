@@ -6,7 +6,7 @@ categories: Algorithms
 
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42842)
 
-
+{% include adsense.html %}
 
 #### 프로그래머스_완전탐색_카펫
 - Leo가 본 카펫에서 갈색 격자의 수 brown, 노란색 격자의 수 yellow가 매개변수로 주어질 때 <br>
