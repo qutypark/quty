@@ -13,6 +13,8 @@ categories: data_analysis
 
 [stats.stackexchange](https://stats.stackexchange.com/questions/88226/how-to-describe-and-present-the-issue-of-perfect-separation"Question2")
 
+{% include adsense.html %}
+
 ## Solution
 
 ### 1.1. Firth's Logit
