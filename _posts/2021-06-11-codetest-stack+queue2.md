@@ -5,6 +5,7 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42587)
 
+{% include adsense.html %}
 
 ### 프로그래머스_스택큐_프린터
 - 인쇄 대기목록의 가장 앞에 있는 문서(J)를 대기목록에서 꺼냄
