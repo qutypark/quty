@@ -5,6 +5,8 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/43105)
 
+{% include adsense.html %}
+
 ### 프로그래머스_동적계획법(DP)_정수 삼각형
 - 삼각형의 정보가 담긴 배열 triangle이 매개변수로 주어질 때, 거쳐간 숫자의 최댓값을 return.
 - 제한조건:아래 칸으로 이동할 때는 대각선 방향으로 한 칸 오른쪽 또는 왼쪽으로만 이동 가능
