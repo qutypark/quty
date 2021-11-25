@@ -5,6 +5,7 @@ categories: Algorithms
 ---
 > [문제링크](https://programmers.co.kr/learn/courses/30/lessons/42576)
 
+{% include adsense.html %}
 
 ### 프로그래머스_해쉬_완주하지못한선수
 - 완주하지 못한 선수를 찾아냄(완주하지 못한 선수는 1명)
