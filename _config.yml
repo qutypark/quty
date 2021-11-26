@@ -96,14 +96,13 @@ social:
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
 
-# # Analytics
-google_analytics: UA-196504970-1
-# analytics:
-#   provider               : false # false (default), "google", "google-universal", "custom"
-#   google:
-#     tracking_id          : 
-#     anonymize_ip         : # true, false (default)
-
+# Analytics
+analytics:
+  provider               : "google-gtag" 
+                          # false (default), "google", "google-universal", "google-gtag", "custom"
+  google:
+    tracking_id          : "G-GJZRP28BZ7"
+    anonymize_ip         : # true, false (default)
 
 # Site Author
 author:
