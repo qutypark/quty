@@ -23,6 +23,8 @@ categories: Visualization
 크고 작음을 한 눈에 이해하기에 가장 편리하다.<br>
 가독성 면에선 항목이 적을수록 가로가 좋고 항목이 많을수록 세로가 좋다.<br>
 
+{% include adsense.html %}
+
 # ■ 1. python으로 구현
 
 ## 준비
