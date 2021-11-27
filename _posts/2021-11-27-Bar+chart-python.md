@@ -16,6 +16,13 @@ categories: Visualization
 +)  [overall](https://tododata101.github.io/visualization/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80%EC%8B%9C%ED%99%94Overall/)
 
 
+# ■ Bar chart
+범주데이터(카테고리 데이터)의 요약 그래프로,<br>
+각 막대는 각 범주를, 각 막대 높이는 각 범주의 특정 집계를 의미한다.
+<br>
+크고 작음을 한 눈에 이해하기에 가장 편리하다.<br>
+가독성 면에선 항목이 적을수록 가로가 좋고 항목이 많을수록 세로가 좋다.<br>
+
 # ■ 1. python으로 구현
 
 ## 준비
@@ -82,11 +89,22 @@ ss.plot.bar(x='Sex', y='Survived')
 - Stacked 막대 차트 생성
 
 ```python
+#먼저 카테고리 변수(성별, 객실등급) 별 생존 평균 데이터프레임 생성
 sp = train[['Sex', 'Pclass', 'Survived']].groupby(['Sex', 'Pclass'], as_index=False).mean().sort_values(by='Survived', ascending=False)
+# 인덱스 생성
 sp.set_index(['Sex', 'Pclass', 'Survived'], append=True)
+
+#객실 등급을 인덱스로 피벗 테이블 생성
 sp2 = sp.pivot(index='Pclass', columns='Sex', values='Survived')
 
+#Stacked 막대 차트 생성
 sp2.plot.bar(stacked=True)
 ```
+
+<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/stacked.%3D.png"  width='50%' height='50%'>
+
+
+# ■ 2. Tableau로 구현
+
 
 
