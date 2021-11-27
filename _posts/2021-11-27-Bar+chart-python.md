@@ -42,7 +42,7 @@ train = pd.read_csv(".../train.csv")
 ```
 ## Python으로 bar chart 구현 방법
 
-#### 1. pandas plot() 함수 사용
+### 1. pandas plot() 함수 사용
 - kind = 'bar' <br>
 - 혹은 df.plot.bar() <br>
 을 통해 bar chart 구현 가능
@@ -56,7 +56,7 @@ df.plot('var', kind='bar')
 df.plot.bar(x='var', y='value')
 ```
 
-#### 2. matplotlib.pyplot사용
+### 2. matplotlib.pyplot사용
 plt.bar()
 
 ```python
@@ -71,7 +71,7 @@ plt.show()
 ```
 
 ## 카테고리 변수(=이산형) 별 생존 평균 집계
-#### 1. 카테고리 변수 : 성별
+### 1. 카테고리 변수 : 성별
 
 ```python
 ss = train[["Sex", "Survived"]].groupby(['Sex'], as_index=False).mean().sort_values(by='Survived', ascending=False)
@@ -82,7 +82,7 @@ ss.plot.bar(x='Sex', y='Survived')
 ```
 <img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/barplot_survive.png"  width='50%' height='50%'>
 
-#### 2. 카테고리 변수: 객실 등급(Pclass)
+### 2. 카테고리 변수: 객실 등급(Pclass)
 성별을 색깔로 구별해줌<br>
 - 먼저 카테고리 변수(성별, 객실등급) 별 생존 평균 데이터프레임 생성
 - 객실 등급을 인덱스로 피벗 테이블 생성
@@ -106,5 +106,38 @@ sp2.plot.bar(stacked=True)
 
 # ■ 2. Tableau로 구현
 
+> 사용 툴: Tableau Public
+>> *Tableau 사용방법에 대해서는 생략*
+
+## 카테고리 변수(=이산형) 별 생존 평균 집계
+### 1. 카테고리 변수 : 성별
+
+- 1) 'Columns'에 '성별' 변수 drag & drop
+- 2) 'Row'에 '생존' 변수 drag & drop
+- 3) Row에 놓인 '생존' 변수 옆 부분에 삼각형 클릭
+- 4) 'Measure'을 'Sum'에서 'Average'로 변경
+- 5) '성별' 변수를 'Marks' > 'Color'에 drag & drop
+
+<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/sex_survived.png"  width='50%' height='50%'>
+
+
+### 2. 카테고리 변수: 객실 등급(Pclass)
+성별을 색깔로 구별해줌<br>
+
+#### 2.1 데이터 종류 변경
+'객실 등급'은 카테고리 변수이나 데이터 상으로는 연속형 변수(수치)<br>
+따라서 카테고리 변수로 변경 필요
+- 1)'객실 등급' 변수 마우스 오른쪽 클릭
+- 2) 데이터 타입 변경 > 'String'
+<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/convert_datatype.png"  width='50%' height='50%'>
+
+#### 2.2 가시화
+- 1) 'Columns'에 변경된 '객실 등급' 변수 drag & drop
+- 2) 'Row'에 '생존' 변수 drag & drop
+- 3) Row에 놓인 '생존' 변수 옆 부분에 삼각형 클릭
+- 4) 'Measure'을 'Sum'에서 'Average'로 변경
+- 5) '성별' 변수를 'Marks' > 'Color'에 drag & drop
+- 6) 성별' 변수를 'Marks' > 'Label'에 drag & drop
+<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/plcass_survived_Sex.png"  width='50%' height='50%'>
 
 
