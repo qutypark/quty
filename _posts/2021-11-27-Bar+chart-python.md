@@ -118,7 +118,7 @@ sp2.plot.bar(stacked=True)
 - 4) 'Measure'을 'Sum'에서 'Average'로 변경
 - 5) '성별' 변수를 'Marks' > 'Color'에 drag & drop
 
-<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/sex_survived.png"  width='50%' height='50%'>
+<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/sex_survived.png"  width='70%' height='70%'>
 
 
 ### 2. 카테고리 변수: 객실 등급(Pclass)
@@ -129,6 +129,7 @@ sp2.plot.bar(stacked=True)
 따라서 카테고리 변수로 변경 필요
 - 1)'객실 등급' 변수 마우스 오른쪽 클릭
 - 2) 데이터 타입 변경 > 'String'
+
 <img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/convert_datatype.png"  width='50%' height='50%'>
 
 #### 2.2 가시화
@@ -138,6 +139,7 @@ sp2.plot.bar(stacked=True)
 - 4) 'Measure'을 'Sum'에서 'Average'로 변경
 - 5) '성별' 변수를 'Marks' > 'Color'에 drag & drop
 - 6) 성별' 변수를 'Marks' > 'Label'에 drag & drop
-<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/plcass_survived_Sex.png"  width='50%' height='50%'>
+- 
+<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/plcass_survived_Sex.png"  width='70%' height='70%'>
 
 
