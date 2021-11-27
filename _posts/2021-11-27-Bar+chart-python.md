@@ -50,7 +50,7 @@ df.plot.bar(x='var', y='value')
 ```
 
 #### 2. matplotlib.pyplot사용
-plt.bar(
+plt.bar()
 
 ```python
 x = np.arange(3)
@@ -72,6 +72,21 @@ ss.plot("Sex",kind="bar").set_xlabel("Sex")
 
 # or
 ss.plot.bar(x='Sex', y='Survived')
+```
+<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/barplot_survive.png"  width='50%' height='50%'>
+
+#### 2. 카테고리 변수: 객실 등급(Pclass)
+성별을 색깔로 구별해줌<br>
+- 먼저 카테고리 변수(성별, 객실등급) 별 생존 평균 데이터프레임 생성
+- 객실 등급을 인덱스로 피벗 테이블 생성
+- Stacked 막대 차트 생성
+
+```python
+sp = train[['Sex', 'Pclass', 'Survived']].groupby(['Sex', 'Pclass'], as_index=False).mean().sort_values(by='Survived', ascending=False)
+sp.set_index(['Sex', 'Pclass', 'Survived'], append=True)
+sp2 = sp.pivot(index='Pclass', columns='Sex', values='Survived')
+
+sp2.plot.bar(stacked=True)
 ```
 
 
