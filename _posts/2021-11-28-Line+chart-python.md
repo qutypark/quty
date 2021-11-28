@@ -22,6 +22,8 @@ categories: Visualization
 - 동일하거나 일련의 관찰대상의 추이를 비교할 경우
 - 추세(trend)를 관찰할 경우
 
+{% include adsense.html %}
+
 # ■ 1. python으로 구현
 ## 준비
 ```python
