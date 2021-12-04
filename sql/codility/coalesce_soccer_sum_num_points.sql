@@ -1,3 +1,41 @@
+-- write your code in mysql / 2021-12-04
+-- 2 temporary table and union
+
+with host as(
+	select 
+		m.match_id as m_id,
+        t.team_id as team_id,
+        t.team_name as team_name,
+        (case when m.host_goals = m.guest_goals then 1
+			  when m.host_goals > m.guest_goals then 3
+              else 0 end) as goal,
+        'host' as host_guest -- classify host or guest
+	from teams as t
+    left join matches as m on t.team_id=m.host_team
+    ),
+guest as(
+	select 
+		m.match_id as m_id,
+        t.team_id as team_id,
+        t.team_name as team_name,
+        (case when m.guest_goals = m.host_goals then 1
+			  when m.guest_goals > m.host_goals then 3
+              else 0 end) as goal,
+        'guest' as host_guest -- classify host or guest
+	from teams as t
+    left join matches as m on t.team_id=m.guest_team
+)
+
+select team_id, team_name, sum(coalesce(goal,0)) as sum_goal
+from
+(select * from guest
+union 
+select * from host) as t1
+group by 1, 2
+order by 3 desc, 1
+
+
+
 -- write your code in PostgreSQ / ver1
 
 select team_id, team_name, 
