@@ -143,7 +143,7 @@ df.set_index('DateTime').plot(marker='o')
 
 ```python
 df1.set_index('DateTime').employement_rate.plot(label='employment_rate', legend=True, color='g', marker='o')
-df1.set_index('DateTime').unemployement_rate.plot(secondary_y=True, label='employment_rate', legend=True, color='b', marker='*')
+df1.set_index('DateTime').unemployement_rate.plot(secondary_y=True, label='unemployment_rate', legend=True, color='b', marker='*')
 ```
 
 <img src = "https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/muliple_ysis.png" >
