@@ -136,6 +136,18 @@ sns.lineplot(data=df, x="DateTime", y="employement_rate", marker='o', color='g')
 ```python
 df.set_index('DateTime').plot(marker='o')
 ```
+
+### 2. df['y'].plot(secondary_y=True)
+- 시간 데이터를 인덱스로 설정<br>
+- secondary_y = True
+
+```python
+df1.set_index('DateTime').employement_rate.plot(label='employment_rate', legend=True, color='g', marker='o')
+df1.set_index('DateTime').unemployement_rate.plot(secondary_y=True, label='employment_rate', legend=True, color='b', marker='*')
+```
+
+<img src = "https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/muliple_ysis.png" >
+
 ### 2. seaborn
 ### 1)  pd.melt() [pd.melt](https://pandas.pydata.org/docs/reference/api/pandas.melt.html)
 pd.melt()함수를 이용하여, <br>
@@ -158,17 +170,19 @@ sns.lineplot(data=dfm_rate, x='DateTime', y='vals', hue='cols', marker='o')
 # ■ 2. Tableau 으로 구현
 
 ## 월별 고용률과 실업률
-: 연도는 색으로 구별
 
 - 1) date변수의 datatype 변형<br>
   : 마우스 오른쪽 > convert datatype > datetime
 - 2) date변수를 'columns'로 drag & drop
-- 3) 'columns' data변수 를 month로.
-- 4) 고용률과 실업률변수를 'rows'로 drag & drop
-- 5) date변수를 'Marks' > 'Color' 로 drag & drop
-- 6) 'Color' data변수 를 Year로.
+- 3) 'columns' data변수 를 month로 변환.
+- 4) 고용률 변수를 'rows'로 drag & drop
+- 5) 실업률 변수를 오른쪽 Y축에 drag & drop
+- 6) date 변수를 그래프 위 축으로 drag & drop
+- 7) 6)의 변수를 'Year'로 변형
+- 8) workbook 오른쪽 부분 마우스 오른쪽 클릭<br>
+-   -> 필터 추가 -> 'Year'선택
 
-<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/tableau_line_emunem.png">
+<img src = "https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/tb_multiple_yaxis_filter.png" >
 
 
 
