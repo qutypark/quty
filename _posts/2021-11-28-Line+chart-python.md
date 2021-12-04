@@ -65,6 +65,10 @@ plt.ylabel('value')
 
 plt.show()
 ```
+- area plot<br>
+ax = df.plot.area()
+
+
 - 그래프 서식
 ```python
 # 그래프 크기: 가로 10 세로 10
@@ -74,7 +78,9 @@ plt.rcParams["figure.figsize"] = (10,10)
 plt.rcParams['lines.linewidth'] = 1
 plt.rcParams['axes.grid'] = True 
 ```
-### 2. seaborn
+
+
+### 2. seaborn as sns
 sns.lineplot()
 ```python
 # dataframe = df
@@ -85,7 +91,8 @@ sns.lineplot(data=df, x="datetime", y="value")
 ```
 
 ## 기간 별 고용률 나타내기
-### 1. matplotlib
+
+### 1. matplotlib 
 ```python
 plt.rcParams["figure.figsize"] = (14,4)
 plt.rcParams['lines.linewidth'] = 1
@@ -97,7 +104,24 @@ plt.xlabel('DateTime')
 plt.ylabel('employment_rate')
 plt.show()
 ```
-### 2. sns
+### +) area plot
+
+```python
+plt.rcParams["figure.figsize"] = (14,4)
+plt.rcParams['lines.linewidth'] = 1
+plt.rcParams['axes.grid'] = True 
+
+ax = df.plot.area(x=df['DateTime'], y=df['employement_rate'], color='g')
+plt.xlim(min(df['employment_rate')-1, max(df['employment_rate']))
+plt.title('employment_rate')
+plt.xlabel('DateTime')
+plt.ylabel('employment_rate')
+plt.show()
+```
+
+<img src="https://raw.githubusercontent.com/tododata101/tododata101.github.io/master/_posts/beforepost/area_chart.png">
+
+### 2. seaborn as sns
 ```python
 sns.lineplot(data=df, x="DateTime", y="employement_rate", marker='o', color='g')
 ```
