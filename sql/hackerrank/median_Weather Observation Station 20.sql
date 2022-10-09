@@ -1,6 +1,32 @@
 /*
  Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to  decimal places.
 */
+-- 2022-10-09
+
+with tmp as (
+select
+    *
+    , percent_rank() OVER (ORDER BY lat_n) p
+    FROM station 
+)
+, total as (
+select
+    case when p = 0 then 'minval'
+        when p <= 0.25 then 'q1'
+        when p <=0.5 then 'q2'
+          when p <= 0.75 then 'q3'
+        else 'maxval' end as percentile
+    , round(max(lat_n), 4) lat_n
+from tmp
+group by 1
+)
+select
+    lat_n
+from total
+where percentile = 'q2'
+
+-- past
+
 
 SET @rowindex := -1;
  
