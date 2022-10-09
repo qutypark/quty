@@ -1,3 +1,20 @@
+-- 2022-10-09
+with tmp as (
+SELECT 
+    *
+    , lag(value, 1) over (partition by event_type order by time) before_value
+    , row_number() over (partition by event_type order by time desc) rn 
+from events
+)
+
+SELECT  
+    distinct event_type, (value - before_value) as value
+from tmp
+where rn = 1 and before_value is not null
+
+----------- past
+
+
 WITH evt AS
 (
   select
