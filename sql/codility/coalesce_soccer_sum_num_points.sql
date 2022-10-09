@@ -1,32 +1,33 @@
 -- 2022-10-09
 
-with base as (
+with results as (
 SELECT
-    distinct host_team as team_id
+    distinct match_id
+    , host_team as team_id
     , case when host_goals > guest_goals then 3
-        when host_goals = guest_goals then 1
+           when host_goals = guest_goals then 1
         else 0 end as score
 from matches
 union all
 SELECT
-    distinct guest_team as team_id
+    distinct match_id
+    , guest_team as team_id
     , case when guest_goals > host_goals then 3
-        when host_goals = guest_goals then 1
+           when host_goals = guest_goals then 1
         else 0 end as score
 from matches
 )
-, total as (
-SELECT 
-    team_id, sum(score) as num_points
-from base
-group by 1
-)
+SELECT
+    distinct t.team_id, t.team_name, coalesce(r.num_points, 0) as num_points
+from teams t 
+left join (select team_id, sum(score) as num_points from results group by team_id) r on t.team_id = r.team_id
+order by 3 desc, 1
 
-SELECT  
-    tm.team_id, tm.team_name, coalesce(t.num_points, 0) as num_points
-from teams tm
-left join total t on t.team_id =tm.team_id
-order by 3 desc, 1 
+
+
+
+
+
 
 
 -- write your code in mysql / 2021-12-04
